@@ -584,7 +584,7 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="axiomatic-probability">
-<h1><span class="section-number">4.4. </span>Axiomatic  Probability<a class="headerlink" href="#axiomatic-probability" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><h1><span class="section-number">4.4. </span>Axiomatic  Probability<a class="headerlink" href="#axiomatic-probability" title="Permalink to this headline">¶</a></h1>
 <p>The methods of the previous two sections that define probabilities using relative frequencies or based on properties of fair experiments are helpful to develop some intuition about probability. However, these methods have limitations that restrict their usefulness to many  real world problems. These problems were recognized by mathematicians working on probability and motivated these mathematicians to develop an approach to probability that is:</p>
 <ul class="simple">
 <li><p>not based on a particular application or interpretation,</p></li>
@@ -594,7 +594,7 @@
 </ul>
 <p>The approach they developed is called <em>Axiomatic Probability</em>. Axiomatic means that there is a set of assumptions or rules (called axioms) for probability, but that the set of rules is made as small as possible. This approach may at first seem unnecessarily mathematical, but I believe that the reader will soon see that this approach will help them to develop a fundamentally sound understanding of probability.</p>
 <div class="section" id="probability-spaces">
-<h2><span class="section-number">4.4.1. </span>Probability Spaces<a class="headerlink" href="#probability-spaces" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h2><span class="section-number">4.4.1. </span>Probability Spaces<a class="headerlink" href="#probability-spaces" title="Permalink to this headline">¶</a></h2>
 <p>The first step in developing Axiomatic Probability is to define the core objects that the axioms apply to. Define a <em>Probability Space</em> as an ordered collection (tuple) of three objects, and we denote it by
 $<span class="math notranslate nohighlight">\(
 (S, \mathcal{F}, P)
@@ -612,8 +612,8 @@ $<span class="math notranslate nohighlight">\(
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>event class</dt><dd><p class="card-text">For a sample space <span class="math notranslate nohighlight">\(S\)</span> and a probability measure <span class="math notranslate nohighlight">\(P\)</span>, the event class, denoted by <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> is a collection of all subsets of <span class="math notranslate nohighlight">\(S\)</span> to which we will assign probability (i.e., for which <span class="math notranslate nohighlight">\(P\)</span> will be defined). The sets in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> are called events.</p>
+<dl class="glossary simple">
+<dt id="term-event-class">event class<a class="headerlink" href="#term-event-class" title="Permalink to this term">¶</a></dt><dd><p class="card-text">For a sample space <span class="math notranslate nohighlight">\(S\)</span> and a probability measure <span class="math notranslate nohighlight">\(P\)</span>, the event class, denoted by <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> is a collection of all subsets of <span class="math notranslate nohighlight">\(S\)</span> to which we will assign probability (i.e., for which <span class="math notranslate nohighlight">\(P\)</span> will be defined). The sets in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> are called events.</p>
 </dd>
 </dl>
 </div>
@@ -664,8 +664,8 @@ If <span class="math notranslate nohighlight">\(A_1, A_2, \ldots\)</span> are a 
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>power set</dt><dd><p class="card-text">For a set <span class="math notranslate nohighlight">\(S\)</span> with finite cardinality, <span class="math notranslate nohighlight">\(|S|=N &lt; \infty\)</span>, the power set is the set of all possible subsets. We will use the notation <span class="math notranslate nohighlight">\(2^S\)</span> to denote the power set.</p>
+<dl class="glossary simple">
+<dt id="term-power-set">power set<a class="headerlink" href="#term-power-set" title="Permalink to this term">¶</a></dt><dd><p class="card-text">For a set <span class="math notranslate nohighlight">\(S\)</span> with finite cardinality, <span class="math notranslate nohighlight">\(|S|=N &lt; \infty\)</span>, the power set is the set of all possible subsets. We will use the notation <span class="math notranslate nohighlight">\(2^S\)</span> to denote the power set.</p>
 </dd>
 </dl>
 </div>
@@ -694,8 +694,8 @@ Consider flipping a coin and observing the top face. Then <span class="math notr
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>probability measure</dt><dd><p class="card-text">The probability measure, <span class="math notranslate nohighlight">\(P\)</span>, is a real-valued set function that maps every element of the event class to the real line.</p>
+<dl class="glossary simple">
+<dt id="term-probability-measure">probability measure<a class="headerlink" href="#term-probability-measure" title="Permalink to this term">¶</a></dt><dd><p class="card-text">The probability measure, <span class="math notranslate nohighlight">\(P\)</span>, is a real-valued set function that maps every element of the event class to the real line.</p>
 </dd>
 </dl>
 </div>
@@ -707,7 +707,7 @@ Consider flipping a coin and observing the top face. Then <span class="math notr
 <p>Although <span class="math notranslate nohighlight">\(P\)</span> assigns outcomes to events (as opposed to outcomes), every outcome in <span class="math notranslate nohighlight">\(S\)</span> is typically an event in the event class. Thus, <span class="math notranslate nohighlight">\(P\)</span> is more general in its operation than we have considered in our previous examples. As explained in <a class="reference internal" href="outcomes-samplespaces-events.html"><span class="doc">Outcomes, Sample Spaces, and Events</span></a>, an event occurs if the experiment’s outcome is one of the outcomes in that event’s set.</p>
 </div>
 <div class="section" id="axioms-of-probability">
-<h2><span class="section-number">4.4.2. </span>Axioms of Probability<a class="headerlink" href="#axioms-of-probability" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2><span class="section-number">4.4.2. </span>Axioms of Probability<a class="headerlink" href="#axioms-of-probability" title="Permalink to this headline">¶</a></h2>
 <p>As previously mentioned, axioms are a minimal set of rules. There are three Axioms of Probability that are specified in terms of the probability measure:</p>
 <p><strong>The Axioms of Probability</strong></p>
 <p><strong>I.</strong> For every event <span class="math notranslate nohighlight">\(E\)</span> in the eventclass <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>, <span class="math notranslate nohighlight">\( P(E) \ge 0\)</span>
