@@ -586,7 +586,7 @@
   <div class="cell tag_remove-input docutils container">
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="combinatorics">
-<span id="index-0"></span><h1><span class="section-number">4.6. </span>Combinatorics<a class="headerlink" href="#combinatorics" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4.6. </span>Combinatorics<a class="headerlink" href="#combinatorics" title="Permalink to this headline">¶</a></h1>
 <p><em>“Counting is the religion of this generation… Anybody can count…” – Gertrude Stein</em></p>
 <p>For fair experiments with a finite sample space <span class="math notranslate nohighlight">\(S\)</span>, we used Axiom III of the Axioms of Probability to show that the probability of an event <span class="math notranslate nohighlight">\(E\)</span> is simply</p>
 <div class="math notranslate nohighlight">
@@ -665,8 +665,8 @@ S = \left\{\left. \left(s_0, s_1, \ldots, s_{K-1} \right) \right| s_0 \in S_0, s
 S= S_0 \times S_1  \times \ldots \times S_{K-1}
 \]</div>
 <p>We start by seeing how we can use Python to calculate probabilities by enumerating and then counting sample spaces and events:</p>
-<span class="target" id="index-1"></span><div class="section" id="enumerating-sample-spaces-and-events-using-itertools">
-<span id="index-2"></span><h2><span class="section-number">4.6.1. </span>Enumerating Sample Spaces and Events Using IterTools<a class="headerlink" href="#enumerating-sample-spaces-and-events-using-itertools" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-0"></span><div class="section" id="enumerating-sample-spaces-and-events-using-itertools">
+<span id="index-1"></span><h2><span class="section-number">4.6.1. </span>Enumerating Sample Spaces and Events Using IterTools<a class="headerlink" href="#enumerating-sample-spaces-and-events-using-itertools" title="Permalink to this headline">¶</a></h2>
 <p>Let’s start by enumerating <span class="math notranslate nohighlight">\(S\)</span> and showing how it can be used to calculate probabilities. We will use the Python <code class="docutils literal notranslate"><span class="pre">itertools</span></code> library,  which is distributed as part of standard Python distributions to enumerate <span class="math notranslate nohighlight">\(S\)</span>. Begin by importing this library:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -966,7 +966,7 @@ $<span class="math notranslate nohighlight">\(
 \)</span>$</p>
 <p>For instance, for the Monopoly dice problem, <span class="math notranslate nohighlight">\(|S_0|=|S_1|=6\)</span>, so <span class="math notranslate nohighlight">\(|S| = |S_0| \cdot |S_1| = 6 \cdot 6 = 36\)</span>.</p>
 <p>This is an example of drawing items from a set and recording the ordered sequence of outcomes, where each item is placed back into the set before the next draw. This is called sampling <strong>with replacement</strong> and <strong>with ordering</strong>. For a set of <span class="math notranslate nohighlight">\(k\)</span> draws from <span class="math notranslate nohighlight">\(N\)</span> items, sampling with replacement means that each <span class="math notranslate nohighlight">\(|S_i|\)</span> in the expression above is equal to <span class="math notranslate nohighlight">\(N\)</span>. Thus,</p>
-<div class="admonition-sampling-with-replacement-and-with-ordering admonition" id="index-3">
+<div class="admonition-sampling-with-replacement-and-with-ordering admonition" id="index-2">
 <p class="admonition-title">Sampling with Replacement and with Ordering</p>
 <p>The number of ways to choose <span class="math notranslate nohighlight">\(k\)</span> items from a set of <span class="math notranslate nohighlight">\(N\)</span> items with replacement and with ordering is</p>
 <div class="math notranslate nohighlight">
@@ -1944,12 +1944,12 @@ function show_questions(json, mydiv) {
 <li><p>…</p></li>
 <li><p>On the final (<span class="math notranslate nohighlight">\(n\)</span>th) draw, there is only one object remaining in the set.</p></li>
 </ul>
-<p id="index-4">**The number of permutations of <span class="math notranslate nohighlight">\(n\)</span> distinct objects is written as <span class="math notranslate nohighlight">\(n!\)</span>, which is read “<span class="math notranslate nohighlight">\(n\)</span> factorial” (en fact-or-ee-ul). The rules for Cartesian products can be applied to calculate **</p>
+<p id="index-3">**The number of permutations of <span class="math notranslate nohighlight">\(n\)</span> distinct objects is written as <span class="math notranslate nohighlight">\(n!\)</span>, which is read “<span class="math notranslate nohighlight">\(n\)</span> factorial” (en fact-or-ee-ul). The rules for Cartesian products can be applied to calculate **</p>
 <div class="math notranslate nohighlight">
 \[
 n! = n(n-1)(n-2)\cdots(2)(1).
 \]</div>
-<p id="index-5">In Python, I recommend you use the factorial function from SciPy.special. If the argument is not more than 20, I would recommend to pass the keyword parameter <code class="docutils literal notranslate"><span class="pre">exact=True</span></code> to get back an integer solution.</p>
+<p id="index-4">In Python, I recommend you use the factorial function from SciPy.special. If the argument is not more than 20, I would recommend to pass the keyword parameter <code class="docutils literal notranslate"><span class="pre">exact=True</span></code> to get back an integer solution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">factorial</span>
@@ -1971,7 +1971,7 @@ n! = n(n-1)(n-2)\cdots(2)(1).
 </div>
 </div>
 <p>Now consider our equation for choosing 2 items out of 20 with ordering: <span class="math notranslate nohighlight">\( 20 \cdot 19\)</span>. We can rewrite this equation using factorial notation as <span class="math notranslate nohighlight">\(20!/18!\)</span>. And it is easy to extend this equation to choosing <span class="math notranslate nohighlight">\(k\)</span> items with ordering. Because each time we choose an item (here, we are choosing the <em>positions</em> for the <span class="math notranslate nohighlight">\(H\)</span>s), we remove it from the set, we call this sampling without replacement and with ordering:</p>
-<div class="admonition-sampling-without-replacement-and-with-ordering admonition" id="index-6">
+<div class="admonition-sampling-without-replacement-and-with-ordering admonition" id="index-5">
 <p class="admonition-title">Sampling without Replacement and with Ordering</p>
 <p>The number of ways to choose <span class="math notranslate nohighlight">\(k\)</span> items from a set of <span class="math notranslate nohighlight">\(N\)</span> items without replacement and with ordering is</p>
 <div class="math notranslate nohighlight">
@@ -1981,7 +1981,7 @@ n! = n(n-1)(n-2)\cdots(2)(1).
 </div>
 <p>As we saw before, the ordered result overcounts the number of outcomes for this problem. What we really want is the unordered set of locations for the <span class="math notranslate nohighlight">\(H\)</span>s. For a given unordered set of <span class="math notranslate nohighlight">\(k\)</span> locations, the number of orderings will be the number of permutations for <span class="math notranslate nohighlight">\(k\)</span> unique items, which is just <span class="math notranslate nohighlight">\(k!\)</span>. Since every unordered set of <span class="math notranslate nohighlight">\(k\)</span> items will shown up <span class="math notranslate nohighlight">\(k!\)</span> times in the ordered list, we can find the number of unordered sets of locations by dividing by <span class="math notranslate nohighlight">\(k!\)</span>.</p>
 <p>This is an example of sampling without replacement and <em>without</em> ordering:</p>
-<span class="target" id="index-7"></span><div class="admonition-sampling-without-replacement-and-without-ordering admonition" id="index-8">
+<span class="target" id="index-6"></span><div class="admonition-sampling-without-replacement-and-without-ordering admonition" id="index-7">
 <p class="admonition-title">Sampling without Replacement and without Ordering</p>
 <p>The number of ways to choose <span class="math notranslate nohighlight">\(k\)</span> items from a set of <span class="math notranslate nohighlight">\(N\)</span> items without replacement and without ordering is</p>
 <div class="math notranslate nohighlight">
@@ -1990,7 +1990,7 @@ n! = n(n-1)(n-2)\cdots(2)(1).
 \]</div>
 <p>which is read as “N choose k” and is known as the {\it binomial coefficient}.</p>
 </div>
-<p id="index-9">To find the binomial coefficient in Python, I recommend that you use the <code class="docutils literal notranslate"><span class="pre">binom</span></code> function from SciPy.special:</p>
+<p id="index-8">To find the binomial coefficient in Python, I recommend that you use the <code class="docutils literal notranslate"><span class="pre">binom</span></code> function from SciPy.special:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">binom</span>
