@@ -41,9 +41,9 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -482,7 +482,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -517,7 +517,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -557,7 +557,50 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Statistical Independence</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-probabilities-and-independence">
+   6.6.1. Conditional probabilities and independence
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#formal-definition-of-statistically-independent-events">
+   6.6.2. Formal definition of statistically independent events
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#when-can-we-assume-independence">
+   6.6.3. When can we assume independence?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relating-statistical-independent-and-mutually-exclusive-events">
+   6.6.4. Relating Statistical Independent and Mutually Exclusive Events
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#terminology-review">
+   6.6.5. Terminology Review
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="statistical-independence">
@@ -2349,8 +2392,8 @@ if (typeof version == 'undefined') {
 <p>I.e., if the probability of an event <span class="math notranslate nohighlight">\(A\)</span> occurring does not depend on whether some event <span class="math notranslate nohighlight">\(B\)</span> occurs, then it cannot depend on whether the event <span class="math notranslate nohighlight">\(B\)</span> does not occur.  This probably matches your intuition. However, we should verify it. Let’s check the first example. We need to evaluate <span class="math notranslate nohighlight">\(P(A \cap \overline{B})\)</span> to see if it factors as <span class="math notranslate nohighlight">\(P(A)P(\overline{B})\)</span>. Referring to the Venn diagram below, we can see that <span class="math notranslate nohighlight">\(A\)</span> consists of the union of the mutually exclusive parts,  <span class="math notranslate nohighlight">\(A \cap B\)</span> and <span class="math notranslate nohighlight">\(A \cap \overline{B}\)</span>. So we can write <span class="math notranslate nohighlight">\(P\left(A \cap \overline{B} \right)= P(A) - P(A \cap B)\)</span>.</p>
 <a class="reference internal image-reference" href="../_images/si-intersection.png"><img alt="Venn Diagram Showing Relation of $A$, $A \cap \overline{B}$, and $A \cap B$" src="../_images/si-intersection.png" style="width: 400px;" /></a>
 <p>Then by utilizing the fact that <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are s.i., we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-792a36e0-16b1-4e82-a616-9dd110d50e5e">
-<span class="eqno">(6.3)<a class="headerlink" href="#equation-792a36e0-16b1-4e82-a616-9dd110d50e5e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2eefbdaf-e206-47bb-bb7e-1305f968167f">
+<span class="eqno">(6.3)<a class="headerlink" href="#equation-2eefbdaf-e206-47bb-bb7e-1305f968167f" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left(A \cap \overline{B} \right) &amp;= P(A) - P(A \cap B) \\
  &amp;= P(A) - P(A) P(B) \\
  &amp;= P(A) \left[ 1- P\left(B\right) \right] \\
@@ -2360,8 +2403,8 @@ P\left(A \cap \overline{B} \right) &amp;= P(A) - P(A \cap B) \\
 <p><strong>Example</strong></p>
 <p><strong>(Take 4)</strong> A fair six-sided die is rolled twice.  What is the probability that either of the rolls is a value less than 3?</p>
 <p>As before, let <span class="math notranslate nohighlight">\(E_i\)</span> be the event that the top face on roll <span class="math notranslate nohighlight">\(i\)</span> is less than 3, for <span class="math notranslate nohighlight">\(i=1,2\)</span>, and <span class="math notranslate nohighlight">\(E_1\)</span> and <span class="math notranslate nohighlight">\(E_2\)</span> are s.i. then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-79a15cbe-356e-43ee-88ed-081e60523e60">
-<span class="eqno">(6.4)<a class="headerlink" href="#equation-79a15cbe-356e-43ee-88ed-081e60523e60" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a1fca49a-13e8-4255-8c8c-52c13cf1a646">
+<span class="eqno">(6.4)<a class="headerlink" href="#equation-a1fca49a-13e8-4255-8c8c-52c13cf1a646" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_1 \cup E_2) &amp;= 1 - P\left(\overline{E_1 \cup E_2}\right) \\
 &amp;= 1 - P\left( \overline{E_1} \cap \overline{E_2} \right) \\
 &amp;= 1 - P\left( \overline{E_1} \right) P\left( \overline{E_2} \right) \\
@@ -2384,8 +2427,8 @@ P(E_1 \cup E_2) &amp;= 1 - P\left(\overline{E_1 \cup E_2}\right) \\
 <dt>statistically independent (for any number of events)</dt><dd><p class="card-text">Given a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\)</span>, a collection of events <span class="math notranslate nohighlight">\(E_0, E_1, \ldots E_{n-1}\)</span> in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> are {\it statistically independent} if and only if (iff)</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-5062c4b3-b846-4bfe-bf0c-ecff79e66894">
-<span class="eqno">(6.5)<a class="headerlink" href="#equation-5062c4b3-b846-4bfe-bf0c-ecff79e66894" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fee536d5-08ea-4ddd-9564-688911f22316">
+<span class="eqno">(6.5)<a class="headerlink" href="#equation-fee536d5-08ea-4ddd-9564-688911f22316" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j \\
 P(E_i \cap E_j \cap E_k) &amp;= P(E_i) P(E_j) P(E_k), ~~ \forall i \ne j \ne k \\
 \ldots
@@ -2409,8 +2452,8 @@ P(E_0 \cap E_1 \cap \ldots \cap E_{n-1}) &amp;= P(E_0) P(E_1) \cdots P(E_{n-1}),
 <dt>pairwise statistically independent</dt><dd><p class="card-text">Given a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\)</span>, a collection of events <span class="math notranslate nohighlight">\(E_0, E_1, \ldots E_{n-1}\)</span> in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> are {\it pairwise statistically independent} if and only if (iff)</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-b431b11a-f7d1-425b-83d8-cefd82f03351">
-<span class="eqno">(6.6)<a class="headerlink" href="#equation-b431b11a-f7d1-425b-83d8-cefd82f03351" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-be91840f-c909-423f-9755-9560c157eac9">
+<span class="eqno">(6.6)<a class="headerlink" href="#equation-be91840f-c909-423f-9755-9560c157eac9" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j 
 \end{align}\]</div>
 </div>
@@ -2419,8 +2462,8 @@ P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j
 </div>
 </div>
 <p>We want to use complements to convert the unions to intersections and the resulting general form looks like</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c7de19d2-9d65-4d5d-94e9-1fec4615772e">
-<span class="eqno">(6.7)<a class="headerlink" href="#equation-c7de19d2-9d65-4d5d-94e9-1fec4615772e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-91d7018f-733c-4adc-817f-4d9d85fea25a">
+<span class="eqno">(6.7)<a class="headerlink" href="#equation-91d7018f-733c-4adc-817f-4d9d85fea25a" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left( \bigcup_i E_i \right) &amp;=
 1- \prod_i \left[ 1- P\left( E_i \right) \right].
 \end{align}\]</div>
@@ -4689,8 +4732,8 @@ function createCards(id) {
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="more-on-simulating.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -4707,19 +4750,17 @@ function createCards(id) {
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By John M. Shea<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By John M. Shea<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
