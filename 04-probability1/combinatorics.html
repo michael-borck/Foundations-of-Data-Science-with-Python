@@ -618,7 +618,7 @@ P(E) = \frac{|E|}{|S|}
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>One of the biggest mistakes made by people learning the material in this section is to try to mix probabilities and combinatorics when computing the probability of an event. For most problems, the solution should only consist of these three steps:</p>
+<p>One of the biggest mistakes made by people learning the material in this section is to try to mix probabilities and combinatorics when computing the probability of an event. When solving most problems with combinatorics, the solution should only consist of these three steps:</p>
 <ol class="simple">
 <li><p>Find <span class="math notranslate nohighlight">\(|S|\)</span> using combinatorics. This is usually not difficult.</p></li>
 <li><p>Find <span class="math notranslate nohighlight">\(|E|\)</span> using combinatorics. This may be very challenging, even if the textual description of an event is simple.</p></li>
@@ -636,7 +636,7 @@ P(E) = \frac{|E|}{|S|}.
 <li><p><strong>Example B</strong>: In <a class="reference internal" href="../03-first-data/hypothesis-testing.html"><span class="doc">Chapter 3</span></a>, we conducted a bootstrap test where we pool the data for the  US states and then perform bootstrap sampling to create random samples under the null hypothesis. When determining how many random draws we might use, it is useful to know how many ways there are to partition the data in this way.</p></li>
 <li><p><strong>Example C</strong>: In <a class="reference internal" href="fair-experiments.html"><span class="doc">Fair Experiments</span></a>, the relative frequencies were shown for the sum of two fair 6-sided dice, as used in Monopoly. If we record the ordered set of top faces of the dice, then the set experiment is a fair experiment, and we can calculate the exact probabilities for the sum of the faces using combinatorics.</p></li>
 </ul>
-<p>Note that the first and third examples are both types of combined experiments, which consist of a sequence of subexperiments. Suppose there are <span class="math notranslate nohighlight">\(K\)</span> subexperiments, and the sample space for the <span class="math notranslate nohighlight">\(i\)</span>th subexperiment is <span class="math notranslate nohighlight">\(S_i\)</span>. Then the sample space for the combined experiment is</p>
+<p>Note that the first and third examples are both types of compound experiments, which consist of a sequence of subexperiments. Suppose there are <span class="math notranslate nohighlight">\(K\)</span> subexperiments, and the sample space for the <span class="math notranslate nohighlight">\(i\)</span>th subexperiment is <span class="math notranslate nohighlight">\(S_i\)</span>. Then the sample space for the compound experiment is</p>
 <div class="math notranslate nohighlight">
 \[
 S = \left\{\left. \left(s_0, s_1, \ldots, s_{K-1} \right) \right| s_0 \in S_0, s_1 \in S_1, \ldots s_{K-1} \in S_{K-1} \right\}.
@@ -860,7 +860,7 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 </div>
 </div>
 </div>
-<p>Now we use itertools to iterate over all the groups of size 3 that can be created by samplign without replacement. This is a combined experiment with identical sample spaces for each component experiment. We can create an iterator for the sample space of one of these groups using <code class="docutils literal notranslate"><span class="pre">itertools.product</span></code> by passing <code class="docutils literal notranslate"><span class="pre">PB</span></code> and the keyword argument <code class="docutils literal notranslate"><span class="pre">repeat</span></code> with the number of items in the groups:</p>
+<p>Now we use itertools to iterate over all the groups of size 3 that can be created by samplign without replacement. This is a compound experiment with identical sample spaces for each component experiment. We can create an iterator for the sample space of one of these groups using <code class="docutils literal notranslate"><span class="pre">itertools.product</span></code> by passing <code class="docutils literal notranslate"><span class="pre">PB</span></code> and the keyword argument <code class="docutils literal notranslate"><span class="pre">repeat</span></code> with the number of items in the groups:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S3</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">PB</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -877,7 +877,7 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 </div>
 </div>
 </div>
-<p>Note that we are not done. We are interested in the number of ways to choose both groups of size 3. This can be considered to be a combined experiment in which each of the individual experiments has 216 outcomes. In other words, the second group has 216 outcomes for <strong>each</strong> outcome of the first group:</p>
+<p>Note that we are not done. We are interested in the number of ways to choose both groups of size 3. This can be considered to be a compound experiment in which each of the individual experiments has 216 outcomes. In other words, the second group has 216 outcomes for <strong>each</strong> outcome of the first group:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S3</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">PB</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -912,7 +912,7 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 </div>
 </div>
 </div>
-<p>As before, we can create an iterator for the combined sample space using <code class="docutils literal notranslate"><span class="pre">itertools.product</span></code> by passing <code class="docutils literal notranslate"><span class="pre">Si</span></code> and the keyword argument <code class="docutils literal notranslate"><span class="pre">repeat</span></code> with the number of repetitions as follows:</p>
+<p>As before, we can create an iterator for the sample space of the compound experiment using <code class="docutils literal notranslate"><span class="pre">itertools.product</span></code> by passing <code class="docutils literal notranslate"><span class="pre">Si</span></code> and the keyword argument <code class="docutils literal notranslate"><span class="pre">repeat</span></code> with the number of repetitions as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Sdice</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">Si</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
@@ -960,7 +960,7 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 </div>
 <div class="section" id="determining-cardinalities-of-sample-spaces-and-events-mathematically">
 <h2><span class="section-number">4.6.2. </span>Determining Cardinalities of Sample Spaces and Events Mathematically<a class="headerlink" href="#determining-cardinalities-of-sample-spaces-and-events-mathematically" title="Permalink to this headline">¶</a></h2>
-<p>We start with a basic result on counting in the context of sample spaces for combined experiments. If <span class="math notranslate nohighlight">\(S\)</span> is a set that can be written as a Cartesian product,</p>
+<p id="index-2">We start with a basic result on counting in the context of sample spaces for compound experiments. If <span class="math notranslate nohighlight">\(S\)</span> is a set that can be written as a Cartesian product,</p>
 <div class="math notranslate nohighlight">
 \[
 S= S_0 \times S_1  \times \ldots \times S_{K-1},
@@ -971,7 +971,7 @@ $<span class="math notranslate nohighlight">\(
 \)</span>$</p>
 <p>For instance, for the Monopoly dice problem, <span class="math notranslate nohighlight">\(|S_0|=|S_1|=6\)</span>, so <span class="math notranslate nohighlight">\(|S| = |S_0| \cdot |S_1| = 6 \cdot 6 = 36\)</span>.</p>
 <p>This is an example of drawing items from a set and recording the ordered sequence of outcomes, where each item is placed back into the set before the next draw. This is called sampling <strong>with replacement</strong> and <strong>with ordering</strong>. For a set of <span class="math notranslate nohighlight">\(k\)</span> draws from <span class="math notranslate nohighlight">\(N\)</span> items, sampling with replacement means that each <span class="math notranslate nohighlight">\(|S_i|\)</span> in the expression above is equal to <span class="math notranslate nohighlight">\(N\)</span>. Thus,</p>
-<div class="admonition-sampling-with-replacement-and-with-ordering admonition" id="index-2">
+<div class="admonition-sampling-with-replacement-and-with-ordering admonition" id="index-3">
 <p class="admonition-title">Sampling with Replacement and with Ordering</p>
 <p>The number of ways to choose <span class="math notranslate nohighlight">\(k\)</span> items from a set of <span class="math notranslate nohighlight">\(N\)</span> items with replacement and with ordering is</p>
 <div class="math notranslate nohighlight">
@@ -1949,12 +1949,12 @@ function show_questions(json, mydiv) {
 <li><p>…</p></li>
 <li><p>On the final (<span class="math notranslate nohighlight">\(n\)</span>th) draw, there is only one object remaining in the set.</p></li>
 </ul>
-<p id="index-3">**The number of permutations of <span class="math notranslate nohighlight">\(n\)</span> distinct objects is written as <span class="math notranslate nohighlight">\(n!\)</span>, which is read “<span class="math notranslate nohighlight">\(n\)</span> factorial” (en fact-or-ee-ul). The rules for Cartesian products can be applied to calculate **</p>
+<p id="index-4">**The number of permutations of <span class="math notranslate nohighlight">\(n\)</span> distinct objects is written as <span class="math notranslate nohighlight">\(n!\)</span>, which is read “<span class="math notranslate nohighlight">\(n\)</span> factorial” (en fact-or-ee-ul). The rules for Cartesian products can be applied to calculate **</p>
 <div class="math notranslate nohighlight">
 \[
 n! = n(n-1)(n-2)\cdots(2)(1).
 \]</div>
-<p id="index-4">In Python, I recommend you use the factorial function from SciPy.special. If the argument is not more than 20, I would recommend to pass the keyword parameter <code class="docutils literal notranslate"><span class="pre">exact=True</span></code> to get back an integer solution.</p>
+<p id="index-5">In Python, I recommend you use the factorial function from SciPy.special. If the argument is not more than 20, I would recommend to pass the keyword parameter <code class="docutils literal notranslate"><span class="pre">exact=True</span></code> to get back an integer solution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">factorial</span>
@@ -1976,7 +1976,7 @@ n! = n(n-1)(n-2)\cdots(2)(1).
 </div>
 </div>
 <p>Now consider our equation for choosing 2 items out of 20 with ordering: <span class="math notranslate nohighlight">\( 20 \cdot 19\)</span>. We can rewrite this equation using factorial notation as <span class="math notranslate nohighlight">\(20!/18!\)</span>. And it is easy to extend this equation to choosing <span class="math notranslate nohighlight">\(k\)</span> items with ordering. Because each time we choose an item (here, we are choosing the <em>positions</em> for the <span class="math notranslate nohighlight">\(H\)</span>s), we remove it from the set, we call this sampling without replacement and with ordering:</p>
-<div class="admonition-sampling-without-replacement-and-with-ordering admonition" id="index-5">
+<div class="admonition-sampling-without-replacement-and-with-ordering admonition" id="index-6">
 <p class="admonition-title">Sampling without Replacement and with Ordering</p>
 <p>The number of ways to choose <span class="math notranslate nohighlight">\(k\)</span> items from a set of <span class="math notranslate nohighlight">\(N\)</span> items without replacement and with ordering is</p>
 <div class="math notranslate nohighlight">
@@ -1986,7 +1986,7 @@ n! = n(n-1)(n-2)\cdots(2)(1).
 </div>
 <p>As we saw before, the ordered result overcounts the number of outcomes for this problem. What we really want is the unordered set of locations for the <span class="math notranslate nohighlight">\(H\)</span>s. For a given unordered set of <span class="math notranslate nohighlight">\(k\)</span> locations, the number of orderings will be the number of permutations for <span class="math notranslate nohighlight">\(k\)</span> unique items, which is just <span class="math notranslate nohighlight">\(k!\)</span>. Since every unordered set of <span class="math notranslate nohighlight">\(k\)</span> items will shown up <span class="math notranslate nohighlight">\(k!\)</span> times in the ordered list, we can find the number of unordered sets of locations by dividing by <span class="math notranslate nohighlight">\(k!\)</span>.</p>
 <p>This is an example of sampling without replacement and <em>without</em> ordering:</p>
-<span class="target" id="index-6"></span><div class="admonition-sampling-without-replacement-and-without-ordering admonition" id="index-7">
+<span class="target" id="index-7"></span><div class="admonition-sampling-without-replacement-and-without-ordering admonition" id="index-8">
 <p class="admonition-title">Sampling without Replacement and without Ordering</p>
 <p>The number of ways to choose <span class="math notranslate nohighlight">\(k\)</span> items from a set of <span class="math notranslate nohighlight">\(N\)</span> items without replacement and without ordering is</p>
 <div class="math notranslate nohighlight">
@@ -1995,7 +1995,7 @@ n! = n(n-1)(n-2)\cdots(2)(1).
 \]</div>
 <p>which is read as “N choose k” and is known as the {\it binomial coefficient}.</p>
 </div>
-<p id="index-8">To find the binomial coefficient in Python, I recommend that you use the <code class="docutils literal notranslate"><span class="pre">binom</span></code> function from SciPy.special:</p>
+<p id="index-9">To find the binomial coefficient in Python, I recommend that you use the <code class="docutils literal notranslate"><span class="pre">binom</span></code> function from SciPy.special:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">binom</span>
