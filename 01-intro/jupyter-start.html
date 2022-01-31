@@ -53,7 +53,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.7. Getting Started in Python" href="python-start.html" />
+    <link rel="next" title="1.7. Hello World!" href="python-start.html" />
     <link rel="prev" title="1.5. Extremely Brief Intro to Jupyter and Python" href="intro-jupyter-and-python.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -136,12 +136,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="python-start.html">
-     1.7. Getting Started in Python
+     1.7. Hello World!
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="review.html">
-     1.8. Review
+     1.18. Review
     </a>
    </li>
   </ul>
@@ -562,8 +562,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupyter-magics">
+   1.6.5. Jupyter Magics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#saving-your-work-closing-notebooks-and-closing-jupyter-lab">
-   1.6.5. Saving Your Work, Closing Notebooks, and Closing Jupyter Lab
+   1.6.6. Saving Your Work, Closing Notebooks, and Closing Jupyter Lab
   </a>
  </li>
 </ul>
@@ -619,8 +624,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupyter-magics">
+   1.6.5. Jupyter Magics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#saving-your-work-closing-notebooks-and-closing-jupyter-lab">
-   1.6.5. Saving Your Work, Closing Notebooks, and Closing Jupyter Lab
+   1.6.6. Saving Your Work, Closing Notebooks, and Closing Jupyter Lab
   </a>
  </li>
 </ul>
@@ -675,14 +685,14 @@
 </ul>
 <p>The file <code class="docutils literal notranslate"><span class="pre">intro.ipynb</span></code> should open in the main work area.</p>
 <div class="section" id="learn-the-basics-of-jupyterlab">
-<h2><span class="section-number">1.6.1. </span>Learn the basics of JupyterLab<a class="headerlink" href="#learn-the-basics-of-jupyterlab" title="Permalink to this headline">¶</a></h2>
+<span id="index-0"></span><h2><span class="section-number">1.6.1. </span>Learn the basics of JupyterLab<a class="headerlink" href="#learn-the-basics-of-jupyterlab" title="Permalink to this headline">¶</a></h2>
 <p>After opening the <code class="docutils literal notranslate"><span class="pre">intro.ipynb</span></code> notebook, take a minute to scroll through the <code class="docutils literal notranslate"><span class="pre">intro.ipynb</span></code> notebook before interacting with it. Note that the notebook includes formatted text, graphics, mathematics, and Python programming code. You will learn to use all of these features in working with data and presenting your analyses.</p>
 <div class="section" id="notebook-structure">
 <h3><span class="section-number">1.6.1.1. </span>Notebook structure<a class="headerlink" href="#notebook-structure" title="Permalink to this headline">¶</a></h3>
 <p>Jupyter notebooks are subdivided into parts called <strong>cells</strong>. Each cell can be used for different purposes; we will use them for either Python code or for Markdown, which is a simple markup language that allows the creation of formatted text with math and graphics. Code cells are subdivided into Input and Output parts. Single click on any part of the <code class="docutils literal notranslate"><span class="pre">intro.ipynb</span></code> notebook to select a cell. The selected cell will be indicated by a color bar along the entire left side of the cell.</p>
 </div>
 <div class="section" id="jupyterlab-interface-modes">
-<h3><span class="section-number">1.6.1.2. </span>JupyterLab interface modes<a class="headerlink" href="#jupyterlab-interface-modes" title="Permalink to this headline">¶</a></h3>
+<span id="index-1"></span><h3><span class="section-number">1.6.1.2. </span>JupyterLab interface modes<a class="headerlink" href="#jupyterlab-interface-modes" title="Permalink to this headline">¶</a></h3>
 <p>The JupyterLab user interface can be in one of two modes, and these modes affect what you can do with a cell:</p>
 <ul class="simple">
 <li><p>In <strong>Edit Mode</strong>, the focus is on one cell, which will be outlined in color (blue on my computer with the default theme), and the cursor will contain a blinking cursor indicating where typed text will appear.</p></li>
@@ -725,7 +735,7 @@
 </ul>
 </div>
 <div class="section" id="intro-to-markdown-in-jupyter">
-<h2><span class="section-number">1.6.3. </span>Intro to Markdown in Jupyter<a class="headerlink" href="#intro-to-markdown-in-jupyter" title="Permalink to this headline">¶</a></h2>
+<span id="index-2"></span><h2><span class="section-number">1.6.3. </span>Intro to Markdown in Jupyter<a class="headerlink" href="#intro-to-markdown-in-jupyter" title="Permalink to this headline">¶</a></h2>
 <p>You will use Jupyter to create documents that inform the reader about data. Although we will use code to process the data and generate graphs, that is usually not enough to tell the story to the reader. Markdown is used to add text, heading, mathematics, and other graphics.</p>
 <p>The example notebook <code class="docutils literal notranslate"><span class="pre">intro.ipynb</span></code> demonstrates the main features of Markdown that we will need in this book. Recall that you can double click on any cell in the notebook to see the Markdown source. Below is a d the title “Intro to Jupyter and Python” cell to see the Markdown tex. This cell illustrates several features of Markdown:</p>
 <p><strong>1. Headings</strong></p>
@@ -791,7 +801,7 @@ more easily reordered in the future.</p>
 <p><a class="reference external" href="http://google.com">Example link</a></p>
 <p><strong>Images</strong> are entered in a very similar way to URLs. Just put an exclamation point (!) before the square brackets. The text in the square brackets will be used as the “alt text”, which is used by screen readers or displayed when hovering the mouse over the image. Images can also be inserted by dragging them from your file manager into a cell. After the Markdown code is inserted, you can edit the alt-text to something more meaningful.</p>
 <p><strong>6. Mathematics</strong></p>
-<p>The sixth cell (labeled “Mathematics”) illustrates formatted mathematics.<br />
+<p id="index-3">The sixth cell (labeled “Mathematics”) illustrates formatted mathematics.<br />
 Markdown in Jupyter supports sophisticated formatting of mathematics using <span class="math notranslate nohighlight">\(\LaTeX\)</span> (pronounced <em>lay tek</em>) notation.<br />
 For inline equations (those that will appear in-line with text, include the <span class="math notranslate nohighlight">\(\LaTeX\)</span> notation between dollar signs, like <code class="docutils literal notranslate"><span class="pre">$\sin^2</span> <span class="pre">x$</span></code> renders as <span class="math notranslate nohighlight">\(\sin^2 x\)</span>.
 Longer equations should be displayed separate from the text and can be created by enclosing them between pairs of dollar signs. For example,</p>
@@ -827,8 +837,362 @@ A good reference for Markdown syntax is
 <li><p>As an alternative to drag-and-drop, you can click on the upload icon (an arrow with a line under it) at the very top of the files panel. This will bring up a file selector that you can use to copy a file from anywhere on your computer.</p></li>
 </ul>
 </div>
+<div class="section" id="jupyter-magics">
+<span id="index-4"></span><h2><span class="section-number">1.6.5. </span>Jupyter Magics<a class="headerlink" href="#jupyter-magics" title="Permalink to this headline">¶</a></h2>
+<p>Code cells can also contain special instructions intended for JupyterLab itself, rather than the
+Python kernel. These are called <em>magics</em>. For instance, to output your current directory, you can use the
+<code class="docutils literal notranslate"><span class="pre">%pwd</span></code> magic</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pwd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/Users/jshea/Dropbox (UFL)/teaching/stats/book/idse/01-intro&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can use the “%cd” magic to change your directory (recall that~ is a shortcut for your home user directory):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/jshea
+</pre></div>
+</div>
+</div>
+</div>
+<p>Changing directories is often useful to switch to a directory where data is stored.</p>
+<p>You can get a list of magics and other information about Jupyter using the <code class="docutils literal notranslate"><span class="pre">%quickref</span></code> magic.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">quickref</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>IPython -- An enhanced Interactive Python - Quick Reference Card
+================================================================
+
+obj?, obj??      : Get help, or more help for object (also works as
+                   ?obj, ??obj).
+?foo.*abc*       : List names in &#39;foo&#39; containing &#39;abc&#39; in them.
+%magic           : Information about IPython&#39;s &#39;magic&#39; % functions.
+
+Magic functions are prefixed by % or %%, and typically take their arguments
+without parentheses, quotes or even commas for convenience.  Line magics take a
+single % and cell magics are prefixed with two %%.
+
+Example magic function calls:
+
+%alias d ls -F   : &#39;d&#39; is now an alias for &#39;ls -F&#39;
+alias d ls -F    : Works if &#39;alias&#39; not a python name
+alist = %alias   : Get list of aliases to &#39;alist&#39;
+cd /usr/share    : Obvious. cd -&lt;tab&gt; to choose from visited dirs.
+%cd??            : See help AND source for magic %cd
+%timeit x=10     : time the &#39;x=10&#39; statement with high precision.
+%%timeit x=2**100
+x**100           : time &#39;x**100&#39; with a setup of &#39;x=2**100&#39;; setup code is not
+                   counted.  This is an example of a cell magic.
+
+System commands:
+
+!cp a.txt b/     : System command escape, calls os.system()
+cp a.txt b/      : after %rehashx, most system commands work without !
+cp ${f}.txt $bar : Variable expansion in magics and system commands
+files = !ls /usr : Capture system command output
+files.s, files.l, files.n: &quot;a b c&quot;, [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;], &#39;a\nb\nc&#39;
+
+History:
+
+_i, _ii, _iii    : Previous, next previous, next next previous input
+_i4, _ih[2:5]    : Input history line 4, lines 2-4
+exec _i81        : Execute input history line #81 again
+%rep 81          : Edit input history line #81
+_, __, ___       : previous, next previous, next next previous output
+_dh              : Directory history
+_oh              : Output history
+%hist            : Command history of current session.
+%hist -g foo     : Search command history of (almost) all sessions for &#39;foo&#39;.
+%hist -g         : Command history of (almost) all sessions.
+%hist 1/2-8      : Command history containing lines 2-8 of session 1.
+%hist 1/ ~2/     : Command history of session 1 and 2 sessions before current.
+%hist ~8/1-~6/5  : Command history from line 1 of 8 sessions ago to
+                   line 5 of 6 sessions ago.
+%edit 0/         : Open editor to execute code with history of current session.
+
+Autocall:
+
+f 1,2            : f(1,2)  # Off by default, enable with %autocall magic.
+/f 1,2           : f(1,2) (forced autoparen)
+,f 1 2           : f(&quot;1&quot;,&quot;2&quot;)
+;f 1 2           : f(&quot;1 2&quot;)
+
+Remember: TAB completion works in many contexts, not just file names
+or python names.
+
+The following magic functions are currently available:
+
+%alias:
+    Define an alias for a system command.
+%alias_magic:
+    ::
+%autoawait:
+    
+%autocall:
+    Make functions callable without having to type parentheses.
+%automagic:
+    Make magic functions callable without having to type the initial %.
+%autosave:
+    Set the autosave interval in the notebook (in seconds).
+%bookmark:
+    Manage IPython&#39;s bookmark system.
+%cat:
+    Alias for `!cat`
+%cd:
+    Change the current working directory.
+%clear:
+    Clear the terminal.
+%colors:
+    Switch color scheme for prompts, info system and exception handlers.
+%conda:
+    Run the conda package manager within the current kernel.
+%config:
+    configure IPython
+%connect_info:
+    Print information for connecting other clients to this kernel
+%cp:
+    Alias for `!cp`
+%debug:
+    ::
+%dhist:
+    Print your history of visited directories.
+%dirs:
+    Return the current directory stack.
+%doctest_mode:
+    Toggle doctest mode on and off.
+%ed:
+    Alias for `%edit`.
+%edit:
+    Bring up an editor and execute the resulting code.
+%env:
+    Get, set, or list environment variables.
+%gui:
+    Enable or disable IPython GUI event loop integration.
+%hist:
+    Alias for `%history`.
+%history:
+    ::
+%killbgscripts:
+    Kill all BG processes started by %%script and its family.
+%ldir:
+    Alias for `!ls -F -G -l %l | grep /$`
+%less:
+    Show a file through the pager.
+%lf:
+    Alias for `!ls -F -l -G %l | grep ^-`
+%lk:
+    Alias for `!ls -F -l -G %l | grep ^l`
+%ll:
+    Alias for `!ls -F -l -G`
+%load:
+    Load code into the current frontend.
+%load_ext:
+    Load an IPython extension by its module name.
+%loadpy:
+    Alias of `%load`
+%logoff:
+    Temporarily stop logging.
+%logon:
+    Restart logging.
+%logstart:
+    Start logging anywhere in a session.
+%logstate:
+    Print the status of the logging system.
+%logstop:
+    Fully stop logging and close log file.
+%ls:
+    Alias for `!ls -F -G`
+%lsmagic:
+    List currently available magic functions.
+%lx:
+    Alias for `!ls -F -l -G %l | grep ^-..x`
+%macro:
+    Define a macro for future re-execution. It accepts ranges of history,
+%magic:
+    Print information about the magic function system.
+%man:
+    Find the man page for the given command and display in pager.
+%matplotlib:
+    ::
+%mkdir:
+    Alias for `!mkdir`
+%more:
+    Show a file through the pager.
+%mv:
+    Alias for `!mv`
+%notebook:
+    ::
+%page:
+    Pretty print the object and display it through a pager.
+%pastebin:
+    Upload code to dpaste.com, returning the URL.
+%pdb:
+    Control the automatic calling of the pdb interactive debugger.
+%pdef:
+    Print the call signature for any callable object.
+%pdoc:
+    Print the docstring for an object.
+%pfile:
+    Print (or run through pager) the file where an object is defined.
+%pinfo:
+    Provide detailed information about an object.
+%pinfo2:
+    Provide extra detailed information about an object.
+%pip:
+    Run the pip package manager within the current kernel.
+%popd:
+    Change to directory popped off the top of the stack.
+%pprint:
+    Toggle pretty printing on/off.
+%precision:
+    Set floating point precision for pretty printing.
+%prun:
+    Run a statement through the python code profiler.
+%psearch:
+    Search for object in namespaces by wildcard.
+%psource:
+    Print (or run through pager) the source code for an object.
+%pushd:
+    Place the current dir on stack and change directory.
+%pwd:
+    Return the current working directory path.
+%pycat:
+    Show a syntax-highlighted file through a pager.
+%pylab:
+    ::
+%qtconsole:
+    Open a qtconsole connected to this kernel.
+%quickref:
+    Show a quick reference sheet 
+%recall:
+    Repeat a command, or get command to input line for editing.
+%rehashx:
+    Update the alias table with all executable files in $PATH.
+%reload_ext:
+    Reload an IPython extension by its module name.
+%rep:
+    Alias for `%recall`.
+%rerun:
+    Re-run previous input
+%reset:
+    Resets the namespace by removing all names defined by the user, if
+%reset_selective:
+    Resets the namespace by removing names defined by the user.
+%rm:
+    Alias for `!rm`
+%rmdir:
+    Alias for `!rmdir`
+%run:
+    Run the named file inside IPython as a program.
+%save:
+    Save a set of lines or a macro to a given filename.
+%sc:
+    Shell capture - run shell command and capture output (DEPRECATED use !).
+%set_env:
+    Set environment variables.  Assumptions are that either &quot;val&quot; is a
+%store:
+    Lightweight persistence for python variables.
+%sx:
+    Shell execute - run shell command and capture output (!! is short-hand).
+%system:
+    Shell execute - run shell command and capture output (!! is short-hand).
+%tb:
+    Print the last traceback.
+%time:
+    Time execution of a Python statement or expression.
+%timeit:
+    Time execution of a Python statement or expression
+%unalias:
+    Remove an alias
+%unload_ext:
+    Unload an IPython extension by its module name.
+%who:
+    Print all interactive variables, with some minimal formatting.
+%who_ls:
+    Return a sorted list of all interactive variables.
+%whos:
+    Like %who, but gives some extra information about each variable.
+%xdel:
+    Delete a variable, trying to clear it from anywhere that
+%xmode:
+    Switch modes for the exception handlers.
+%%!:
+    Shell execute - run shell command and capture output (!! is short-hand).
+%%HTML:
+    Alias for `%%html`.
+%%SVG:
+    Alias for `%%svg`.
+%%bash:
+    %%bash script magic
+%%capture:
+    ::
+%%debug:
+    ::
+%%file:
+    Alias for `%%writefile`.
+%%html:
+    ::
+%%javascript:
+    Run the cell block of Javascript code
+%%js:
+    Run the cell block of Javascript code
+%%latex:
+    Render the cell as a block of latex
+%%markdown:
+    Render the cell as Markdown text block
+%%perl:
+    %%perl script magic
+%%prun:
+    Run a statement through the python code profiler.
+%%pypy:
+    %%pypy script magic
+%%python:
+    %%python script magic
+%%python2:
+    %%python2 script magic
+%%python3:
+    %%python3 script magic
+%%ruby:
+    %%ruby script magic
+%%script:
+    ::
+%%sh:
+    %%sh script magic
+%%svg:
+    Render the cell as an SVG literal
+%%sx:
+    Shell execute - run shell command and capture output (!! is short-hand).
+%%system:
+    Shell execute - run shell command and capture output (!! is short-hand).
+%%time:
+    Time execution of a Python statement or expression.
+%%timeit:
+    Time execution of a Python statement or expression
+%%writefile:
+    ::
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="saving-your-work-closing-notebooks-and-closing-jupyter-lab">
-<h2><span class="section-number">1.6.5. </span>Saving Your Work, Closing Notebooks, and Closing Jupyter Lab<a class="headerlink" href="#saving-your-work-closing-notebooks-and-closing-jupyter-lab" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.6.6. </span>Saving Your Work, Closing Notebooks, and Closing Jupyter Lab<a class="headerlink" href="#saving-your-work-closing-notebooks-and-closing-jupyter-lab" title="Permalink to this headline">¶</a></h2>
 <p>You can save your work by choosing <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">Notebook</span></code> in Jupyter Lab’s <code class="docutils literal notranslate"><span class="pre">File</span></code> menu, or by pressing the keyboard sequence listed next to that item in the menu. When you manually save your work in this way, Jupyter actually saves two copies of your work: it updates the <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file that you see in the file list, and it also updates a <em>hidden</em> checkpoint file.  When you are updating your document, Jupyter will also autosave your work periodically – the default is every 120s. When Jupyter autosaves, it only updates the .ipynb file. If Jupyter crashes or your quit it without saving your notebooks, your last autosaved work will be what you see in the .ipynb files. However, you can always revert to the version that your purposefully saved by using the <code class="docutils literal notranslate"><span class="pre">Revert</span> <span class="pre">Notebook</span> <span class="pre">to</span> <span class="pre">Checkpoint</span></code> item in the File menu.</p>
 <p>When starting new Jupyter notebooks, their initial name will be “Untitled.ipynb”. You can easily rename your notebook in a couple of ways. First, you can choose the <code class="docutils literal notranslate"><span class="pre">Rename</span> <span class="pre">Notebook...</span></code> option from the file menu. As an alternative, you can right-click on the notebook in the left-hand Files panel and
 choose <code class="docutils literal notranslate"><span class="pre">Rename</span></code>. In both cases, be sure to only change the part of the notebook name that is in front of the <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> extension. The extension is used by Jupyter to recognize Jupyter notebooks.</p>
@@ -884,7 +1248,7 @@ choose <code class="docutils literal notranslate"><span class="pre">Rename</span
     <a class='right-next' id="next-link" href="python-start.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.7. </span>Getting Started in Python</p>
+        <p class="prev-next-title"><span class="section-number">1.7. </span>Hello World!</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
