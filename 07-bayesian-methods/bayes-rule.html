@@ -612,7 +612,7 @@
 <h1><span class="section-number">7.1. </span>Bayes’ Rule<a class="headerlink" href="#bayes-rule" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="motivating-example-part-1">
 <h2><span class="section-number">7.1.1. </span>Motivating Example – Part 1<a class="headerlink" href="#motivating-example-part-1" title="Permalink to this headline">¶</a></h2>
-<p>Consider again a motivating example from the Introduction:</p>
+<p id="index-0">Consider again a motivating example from the Introduction:</p>
 <p><strong>A 40 year-old woman’s mammogram comes back positive for a breast cancer tumor. What is the probability that the woman has breast cancer?</strong></p>
 <p>This problem can be modeled as a <em>stochastic system</em>:</p>
 <div class="sphinx-bs container pb-4 docutils">
@@ -623,8 +623,8 @@
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>stochastic system</dt><dd><p class="card-text">A stochastic system with one or more inputs and one or more outputs, for which the output(s) is(are) not a deterministic function of the output(s).</p>
+<dl class="glossary simple">
+<dt id="term-stochastic-system">stochastic system<a class="headerlink" href="#term-stochastic-system" title="Permalink to this term">¶</a></dt><dd><p class="card-text">A stochastic system with one or more inputs and one or more outputs, for which the output(s) is(are) not a deterministic function of the output(s).</p>
 </dd>
 </dl>
 </div>
@@ -632,27 +632,27 @@
 </div>
 </div>
 </div>
-<div class="admonition note">
+<div class="admonition note" id="index-1">
 <p class="admonition-title">Note</p>
 <p>One of the most challenging problems for students learning probability is taking a word problem, translating it into mathematics, identifying and finding the necessary information, and solving the problem.  There are several keys to being successful at this. The first two are:</p>
-<p><strong>1.</strong> Identify all of the phenomena (inputs, outputs, state) that may be random. Note that we should identify phenomenon that may be random <strong>even if we are given a particular outcome, event, or realization occurred for that phenomenon</strong>.
-<strong>2.</strong> Introduce clearly-defined mathematical terminology for all of the random phenomena in the problem.</p>
+<p><strong>1.</strong> Identify all of the phenomena (inputs, outputs, state) that may be random. Note that we should identify phenomenon that may be random <strong>even if we are given a particular outcome, event, or realization occurred for that phenomenon</strong>.</p>
+<p><strong>2.</strong> Introduce clearly-defined mathematical terminology for all of the random phenomena in the problem.</p>
 </div>
-<p>In this problem, we use randomness to model our lack of knowledge.  For example, for the woman under consideration, we do not know whether she has breast cancer or not. Thus, whether the woman actually has cancer is one random phenomenon. Although we are told that the mammogram came back positive, in general, it is a random phenomena that will depend on whether the woman being tested has breast cancer. These two are the only random phenomena in this problem, so we can not introduce notation.  Let</p>
+<p>In this problem, we use randomness to model our lack of knowledge.  For example, for the woman under consideration, we do not know whether she has breast cancer or not. Thus, whether the woman actually has cancer is one random phenomenon. Although we are told that the mammogram came back positive, in general, it is a random phenomena that will depend on whether the woman being tested has breast cancer. These two are the only random phenomena in this problem, so we can now introduce notation.  Let</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(C\)</span>  is the event that a woman is diagnosed with having breast cancer in a given year</p></li>
-<li><p><span class="math notranslate nohighlight">\(D\)</span> is the event that a mammogram detects breast cancer in a woman in a given year</p></li>
+<li><p><span class="math notranslate nohighlight">\(C\)</span>  be the event that a woman is diagnosed with having breast cancer in a given year</p></li>
+<li><p><span class="math notranslate nohighlight">\(D\)</span>beis the event that a mammogram detects breast cancer in a woman in a given year</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The next steps in solving a probabiity word problem are:</p>
-<p><strong>3.</strong> Translate the probability that is being asked about from words to mathematics.
-<strong>4.</strong> Use probability techniques to formulate a solution for the problem in terms of probabilities that are known or that can be found from reliable source.</p>
+<p><strong>3.</strong> Translate the probability that is being asked about from words to mathematics.</p>
+<p><strong>4.</strong> Use probability techniques to formulate a solution for the problem in terms of probabilities that are known or that can be found from reliable source.</p>
 </div>
-<p>Again, one of the hard things for people learning probability is to even write down a formula for the probability that the problem is asking about.  For instance, this problem states: “What is the probability that the woman has breast cancer?”  So, some readers may translate this probability to $<span class="math notranslate nohighlight">\(P(C)\)</span>$.</p>
+<p>Again, one of the hard things for people learning probability is to even write down a formula for the probability that the problem is asking about.  For instance, this problem states: “What is the probability that the woman has breast cancer?”  So, some readers may translate this probability to $<span class="math notranslate nohighlight">\(P(C).\)</span>$</p>
 <p><strong>That formula is not the probability that this problem is asking about!</strong> The reason is that we need to interpret that sentence in terms of the other information given in the problem. In this case, the first sentence states “A 40 year-old woman’s mammogram comes back positive for a breast cancer tumor”. In other words, we are <strong>given</strong> that the mammogram came back positive for cancer, which in our mathematical notation is <span class="math notranslate nohighlight">\(D\)</span>.  Thus, the probability that this problem is seeking is <span class="math notranslate nohighlight">\(P(C|D)\)</span>, which is the <em>conditional</em> probability that the woman has cancer <em>given</em> that her mammogram detected cancer.</p>
-<p>To begin to interpret this probability, the reader needs to understand medical tests are never perfect.
-When a mammogram detects breast cancer, that does <em>not</em> necessarily mean that a woman has breast cancer. If a mammogram detects breast cancer and a woman does not actually have breast cancer, that is called a <em>false alarm</em>. The probability of a false alarm is <span class="math notranslate nohighlight">\(P(\overline{C}|D)\)</span>. You can find information on false alarm rates for mammograms on the Susan G. Komen Foundation’s web pages at</p>
+<span class="target" id="index-2"></span><p id="index-3">To begin to interpret this probability, the reader needs to understand medical tests are never perfect.
+When a mammogram detects breast cancer, that does <em>not</em> necessarily mean that a woman has breast cancer. If a mammogram detects breast cancer and a woman does not actually have breast cancer, that is called a <em>false alarm</em> (or a <em>Type I error</em>). The probability of a false alarm is <span class="math notranslate nohighlight">\(P(\overline{C}|D)\)</span>. You can find information on false alarm rates for mammograms on the Susan G. Komen Foundation’s web pages at</p>
 <p><a class="reference external" href="https://www.komen.org/breast-cancer/screening/mammography/accuracy/">https://www.komen.org/breast-cancer/screening/mammography/accuracy/</a></p>
 <p>Based on the information on that page, let’s let <span class="math notranslate nohighlight">\(P(D|\overline{C})=0.1\)</span>.</p>
 <p>If a woman does have cancer, a mammogram should detect it most of the time. The probability of detecting an effect given it is actually present is called the <em>sensitivity</em> of the test. From the same Susan G. Komen Foundation web page, the sensitivity of a mammograms is <span class="math notranslate nohighlight">\(P(D|C)=0.87\)</span>.</p>
@@ -670,13 +670,14 @@ When a mammogram detects breast cancer, that does <em>not</em> necessarily mean 
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>likelihood (discrete stochastic systems)</dt><dd><p class="card-text">Consider a stochastic system with a discrete set of possible input events <span class="math notranslate nohighlight">\(\{ A_0, A_i, \ldots \}\)</span> and a discrete set of possible output events <span class="math notranslate nohighlight">\(\{B_0, B_1, \ldots\}\)</span>. Then the <em>likelihoods</em> are the conditional probabilities of the output events given the input events:
-$<span class="math notranslate nohighlight">\(
-P(B_j| A_i).
-\)</span>$</p>
+<dl class="glossary simple">
+<dt id="term-likelihood-discrete-stochastic-systems">likelihood; discrete stochastic systems<a class="headerlink" href="#term-likelihood-discrete-stochastic-systems" title="Permalink to this term">¶</a></dt><dd><p class="card-text">Consider a stochastic system with a discrete set of possible input events <span class="math notranslate nohighlight">\(\{ A_0, A_i, \ldots \}\)</span> and a discrete set of possible output events <span class="math notranslate nohighlight">\(\{B_0, B_1, \ldots\}\)</span>. Then the <em>likelihoods</em> are the conditional probabilities of the output events given the input events:</p>
 </dd>
 </dl>
+<div class="math notranslate nohighlight">
+\[
+P(B_j| A_i).
+\]</div>
 </div>
 </div>
 </div>
@@ -692,13 +693,14 @@ P(B_j| A_i).
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt><em>a posteriori</em> probability (discrete stochastic system)</dt><dd><p class="card-text">Consider a stochastic system with a discrete set of possible input events <span class="math notranslate nohighlight">\(\{ A_0, A_i, \ldots \}\)</span> and a discrete set of possible output events <span class="math notranslate nohighlight">\(\{B_0, B_1, \ldots\}\)</span>. Then the <em>a posterior probabilities</em> are the conditional probabilities of the input events given the observed outputs:
-$<span class="math notranslate nohighlight">\(
-P(A_i | B_j).
-\)</span>$</p>
+<dl class="glossary simple">
+<dt id="term-a-posteriori-probability-discrete-stochastic-system"><em>a posteriori</em> probability; discrete stochastic system<a class="headerlink" href="#term-a-posteriori-probability-discrete-stochastic-system" title="Permalink to this term">¶</a></dt><dd><p class="card-text">Consider a stochastic system with a discrete set of possible input events <span class="math notranslate nohighlight">\(\{ A_0, A_i, \ldots \}\)</span> and a discrete set of possible output events <span class="math notranslate nohighlight">\(\{B_0, B_1, \ldots\}\)</span>. Then the <em>a posterior probabilities</em> are the conditional probabilities of the input events given the observed outputs:</p>
 </dd>
 </dl>
+<div class="math notranslate nohighlight">
+\[
+P(A_i | B_j).
+\]</div>
 <p class="card-text"><em>A posteriori</em> probabilities are sometimes abbreviated APPs and sometimes called <em>posteriors</em>.</p>
 </div>
 </div>
@@ -729,8 +731,8 @@ P(C|D) = \frac{P (D|C)P(C)}{P(D)}.
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt><em>a priori</em> probability (discrete stochastic system)</dt><dd><p class="card-text">Consider a stochastic system with a discrete set of possible input events <span class="math notranslate nohighlight">\(\{ A_0, A_i, \ldots \}\)</span>. Then the <em>a priori probabilities</em> are the probabilities of the input events before any output is observed or measured:</p>
+<dl class="glossary simple">
+<dt id="term-a-priori-probability-discrete-stochastic-system"><em>a priori</em> probability; discrete stochastic system<a class="headerlink" href="#term-a-priori-probability-discrete-stochastic-system" title="Permalink to this term">¶</a></dt><dd><p class="card-text">Consider a stochastic system with a discrete set of possible input events <span class="math notranslate nohighlight">\(\{ A_0, A_i, \ldots \}\)</span>. Then the <em>a priori probabilities</em> are the probabilities of the input events before any output is observed or measured:</p>
 </dd>
 </dl>
 <div class="math notranslate nohighlight">
@@ -762,14 +764,14 @@ P(C|D) = \frac{P (D|C)P(C)}{P(D|C) P(C) + P\left(D| \overline{C}\right) P\left(\
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>Bayes’ Rule (discrete stochastic system)</dt><dd><p class="card-text">Consider a stochastic system with a discrete set of possible input events <span class="math notranslate nohighlight">\(\{ A_0, A_i, \ldots \}\)</span> and a discrete set of possible output events <span class="math notranslate nohighlight">\(\{B_0, B_1, \ldots\}\)</span>.  Then the <em>a posteriori</em> probabilities <span class="math notranslate nohighlight">\(P(A_i|B_j)\)</span> can be written in terms of the likelihoods (<span class="math notranslate nohighlight">\(P(B_j|A_i)\)</span>) and the <em>a priori</em> probabilities (<span class="math notranslate nohighlight">\(P(A_i)\)</span>) as</p>
+<dl class="glossary simple">
+<dt id="term-Bayes-Rule-discrete-stochastic-system">Bayes’ Rule; discrete stochastic system<a class="headerlink" href="#term-Bayes-Rule-discrete-stochastic-system" title="Permalink to this term">¶</a></dt><dd><p class="card-text">Consider a stochastic system with a discrete set of possible input events <span class="math notranslate nohighlight">\(\{ A_0, A_i, \ldots \}\)</span> and a discrete set of possible output events <span class="math notranslate nohighlight">\(\{B_0, B_1, \ldots\}\)</span>.  Then the <em>a posteriori</em> probabilities <span class="math notranslate nohighlight">\(P(A_i|B_j)\)</span> can be written in terms of the likelihoods (<span class="math notranslate nohighlight">\(P(B_j|A_i)\)</span>) and the <em>a priori</em> probabilities (<span class="math notranslate nohighlight">\(P(A_i)\)</span>) as</p>
 </dd>
 </dl>
 <div class="math notranslate nohighlight">
 \[
 P(A_i|B_j) = \frac{P\left(B_j \left \vert A_i \right. \right) P\left( A_i \right)}
-{ \sum_i P\left(B_j \left \vert A_i \right. \right) P\left( A_i \right)}
+{ \sum_i P\left(B_j \left \vert A_i \right. \right) P\left( A_i \right)}.
 \]</div>
 <p class="card-text">Note that the form of the numerator and the summands in the denominator are the same.</p>
 </div>
@@ -786,8 +788,8 @@ P(A_i|B_j) = \frac{P\left(B_j \left \vert A_i \right. \right) P\left( A_i \right
 <img alt="../_images/Age_Specific_Rates_of_Breast_Cancer_2021.jpg" src="../_images/Age_Specific_Rates_of_Breast_Cancer_2021.jpg" />
 <p>Based on this figure, <span class="math notranslate nohighlight">\(P(C) \approx 140/100,000 = 1.4 \times10^{-3}\)</span>, and <span class="math notranslate nohighlight">\(P\left( \overline{C} \right) = 1- P\left( C \right)\)</span>.</p>
 <p>Now we have enough data to calculate the conditional probability that a 40 year-old woman has cancer given that she has a mammogram that detects breast cancer:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1e13f61c-0188-494e-a4ac-dfae63993fbc">
-<span class="eqno">(7.1)<a class="headerlink" href="#equation-1e13f61c-0188-494e-a4ac-dfae63993fbc" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-238650f6-5b36-4a26-bfbc-9d6b9966b1cb">
+<span class="eqno">(7.1)<a class="headerlink" href="#equation-238650f6-5b36-4a26-bfbc-9d6b9966b1cb" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(C|D) &amp;= \frac{P (D|C)P(C)}{P(D|C) P(C) + P\left(D| \overline{C}\right) P\left(\overline{C}\right)} \\
 &amp;=\frac{(0.87)(1.4 \times 10^{-3})}{ (0.87)(1.4 \times 10^{-3}) +  \left[ \left( 0.1 \right) \left(1- 1.4 \times 10^{-3} \right)  \right]} \\
 \end{align}\]</div>
@@ -807,6 +809,12 @@ P(C|D) &amp;= \frac{P (D|C)P(C)}{P(D|C) P(C) + P\left(D| \overline{C}\right) P\l
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The probability that a woman in her 40s actually has cancer when she has a positive mammogram test
+is approximately 0.012
+</pre></div>
+</div>
+</div>
 </div>
 <p>Is this result surprising to you? The test only has a false positive rate of 10%; i.e., it only indicates cancer when cancer is not present 10% of the time?  This is an example of the <strong>base rate fallacy</strong>:</p>
 <div class="sphinx-bs container pb-4 docutils">
@@ -817,8 +825,8 @@ P(C|D) &amp;= \frac{P (D|C)P(C)}{P(D|C) P(C) + P\left(D| \overline{C}\right) P\l
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>base rate fallacy</dt><dd><p class="card-text">Many people have incorrect intuition about dependent phenomena when given both likelihoods and <em>a priori</em> probabilities. The tendency is to focus on the likelihoods, which describe the relation among the phenomena and neglect the <em>a prioris</em>, which give some <strong>base rate</strong> at which one of the phenomena occurs. This is especially problematic when the base rate is particularly close to 0 or 1.  The base rate fallacy can be often be avoided by applying Bayes’ rule to determine the <em>a posteriori</em> probabilities.</p>
+<dl class="glossary simple">
+<dt id="term-base-rate-fallacy">base rate fallacy<a class="headerlink" href="#term-base-rate-fallacy" title="Permalink to this term">¶</a></dt><dd><p class="card-text">Many people have incorrect intuition about dependent phenomena when given both likelihoods and <em>a priori</em> probabilities. The tendency is to focus on the likelihoods, which describe the relation among the phenomena and neglect the <em>a prioris</em>, which give some <strong>base rate</strong> at which one of the phenomena occurs. This is especially problematic when the base rate is particularly close to 0 or 1.  The base rate fallacy can be often be avoided by applying Bayes’ rule to determine the <em>a posteriori</em> probabilities.</p>
 </dd>
 </dl>
 </div>
@@ -856,10 +864,11 @@ P(C|D) &amp;= \frac{P (D|C)P(C)}{P(D|C) P(C) + P\left(D| \overline{C}\right) P\l
 0.1(499,300) = 49,930.
 \]</div>
 <p>Are you surprised? For every 40 year-old woman who has breast cancer correctly detected by a mammogram, there are almost 82 who have breast cancer <strong>incorrectly detected</strong> by a mammogram.</p>
-<p>The total number of women for which breast cancer is detected is
-$<span class="math notranslate nohighlight">\(
+<p>The total number of women for which breast cancer is detected is</p>
+<div class="math notranslate nohighlight">
+\[
 609+49,930= 50,539.
-\)</span>$</p>
+\]</div>
 <p>Thus, the proportion of women for whom a mammogram detects breast cancer that actually have breast cancer is</p>
 <div class="math notranslate nohighlight">
 \[
