@@ -37,9 +37,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -136,12 +139,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-intro/python-start.html">
-     1.7. Hello World!
+     1.7. Getting Started in Python
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-intro/review.html">
-     1.18. Review
+     1.8. Review
     </a>
    </li>
   </ul>
@@ -1106,8 +1109,8 @@ P\left(A_0 \left \vert B_j \right. \right)
 P(A_i|B_j) = \frac{P(B_j|A_i)P(A_i)}{\sum_i P(B_j|A_i)P(A_i)}.
 \]</div>
 <p>If only the MAP decision is needed, then <a class="reference internal" href="#equation-binary-map">(7.2)</a> can be simplified:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a0e93395-9d98-4a2f-9bf6-1d502ee6e7cb">
-<span class="eqno">(7.3)<a class="headerlink" href="#equation-a0e93395-9d98-4a2f-9bf6-1d502ee6e7cb" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bf451d58-a6ee-42dd-aad1-f32a123f5bbe">
+<span class="eqno">(7.3)<a class="headerlink" href="#equation-bf451d58-a6ee-42dd-aad1-f32a123f5bbe" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left(A_0 \left \vert B_j \right. \right)  &amp; \underset{1}{\overset{0}{\gtrless}}  P \left( A_1 \left \vert B_j \right. \right)\\
 \frac{P(B_j|A_0)P(A_0)}{\sum_i P(B_j|A_i)P(A_i)} &amp; \underset{1}{\overset{0}{\gtrless}}
 \frac{P(B_j|A_1)P(A_1)}{\sum_i P(B_j|A_i)P(A_i)} \\

@@ -37,9 +37,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -136,12 +139,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-intro/python-start.html">
-     1.7. Hello World!
+     1.7. Getting Started in Python
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-intro/review.html">
-     1.18. Review
+     1.8. Review
     </a>
    </li>
   </ul>
@@ -788,8 +791,8 @@ P(A_i|B_j) = \frac{P\left(B_j \left \vert A_i \right. \right) P\left( A_i \right
 <img alt="../_images/Age_Specific_Rates_of_Breast_Cancer_2021.jpg" src="../_images/Age_Specific_Rates_of_Breast_Cancer_2021.jpg" />
 <p>Based on this figure, <span class="math notranslate nohighlight">\(P(C) \approx 140/100,000 = 1.4 \times10^{-3}\)</span>, and <span class="math notranslate nohighlight">\(P\left( \overline{C} \right) = 1- P\left( C \right)\)</span>.</p>
 <p>Now we have enough data to calculate the conditional probability that a 40 year-old woman has cancer given that she has a mammogram that detects breast cancer:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b2745be6-8850-4dfa-9503-7ba89df7b15d">
-<span class="eqno">(7.1)<a class="headerlink" href="#equation-b2745be6-8850-4dfa-9503-7ba89df7b15d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-70b0d01a-06bf-4035-a5df-31391fcc948c">
+<span class="eqno">(7.1)<a class="headerlink" href="#equation-70b0d01a-06bf-4035-a5df-31391fcc948c" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(C|D) &amp;= \frac{P (D|C)P(C)}{P(D|C) P(C) + P\left(D| \overline{C}\right) P\left(\overline{C}\right)} \\
 &amp;=\frac{(0.87)(1.4 \times 10^{-3})}{ (0.87)(1.4 \times 10^{-3}) +  \left[ \left( 0.1 \right) \left(1- 1.4 \times 10^{-3} \right)  \right]} \\
 \end{align}\]</div>

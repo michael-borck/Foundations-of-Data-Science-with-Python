@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1.7. Hello World! &#8212; Foundations of Data Science with Python</title>
+    <title>1.7. Getting Started in Python &#8212; Foundations of Data Science with Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -37,9 +37,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -53,7 +56,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.18. Review" href="review.html" />
+    <link rel="next" title="1.8. Review" href="review.html" />
     <link rel="prev" title="1.6. Getting Started in Jupyter" href="jupyter-start.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -136,12 +139,12 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     1.7. Hello World!
+     1.7. Getting Started in Python
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="review.html">
-     1.18. Review
+     1.8. Review
     </a>
    </li>
   </ul>
@@ -529,46 +532,46 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   1.7. Hello World!
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hello-world">
+   1.7.1. Hello World!
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comments">
-   1.8. Comments
+   1.7.2. Comments
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#python-variables-and-types">
-   1.9. Python Variables and Types
+   1.7.3. Python Variables and Types
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#basic-data-types">
-     1.9.1. Basic Data Types
+     1.7.3.1. Basic Data Types
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#copying-variables">
-   1.10. Copying Variables
+   1.7.4. Copying Variables
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#indentation-and-line-breaks-in-python">
-   1.11. Indentation and Line Breaks in Python
+   1.7.5. Indentation and Line Breaks in Python
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loops-and-conditionals">
-   1.12. Loops and Conditionals
+   1.7.6. Loops and Conditionals
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#for-in-statements">
-     1.12.1.
+     1.7.6.1.
      <code class="docutils literal notranslate">
       <span class="pre">
        for
@@ -583,9 +586,9 @@
      Statements
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#if-statements">
-     1.12.2.
+     1.7.6.2.
      <code class="docutils literal notranslate">
       <span class="pre">
        if
@@ -594,9 +597,9 @@
      Statements
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#while-statements">
-     1.12.3.
+     1.7.6.3.
      <code class="docutils literal notranslate">
       <span class="pre">
        while
@@ -607,36 +610,36 @@
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#functions">
-   1.13. Functions
+   1.7.7. Functions
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#getting-help-and-completion">
-   1.14. Getting Help and Completion
+   1.7.8. Getting Help and Completion
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#python-modules-and-namespaces">
-   1.15. Python Modules and Namespaces
+   1.7.9. Python Modules and Namespaces
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#numpy-arrays">
-     1.15.1. NumPy Arrays
+     1.7.9.1. NumPy Arrays
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#writing-big-numbers-in-python">
-   1.16. Writing Big Numbers in Python
+   1.7.10. Writing Big Numbers in Python
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary-and-other-resources">
-   1.17. Summary and Other Resources
+   1.7.11. Summary and Other Resources
   </a>
  </li>
 </ul>
@@ -649,7 +652,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Hello World!</h1>
+                <h1>Getting Started in Python</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -659,46 +662,46 @@
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   1.7. Hello World!
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hello-world">
+   1.7.1. Hello World!
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comments">
-   1.8. Comments
+   1.7.2. Comments
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#python-variables-and-types">
-   1.9. Python Variables and Types
+   1.7.3. Python Variables and Types
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#basic-data-types">
-     1.9.1. Basic Data Types
+     1.7.3.1. Basic Data Types
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#copying-variables">
-   1.10. Copying Variables
+   1.7.4. Copying Variables
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#indentation-and-line-breaks-in-python">
-   1.11. Indentation and Line Breaks in Python
+   1.7.5. Indentation and Line Breaks in Python
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loops-and-conditionals">
-   1.12. Loops and Conditionals
+   1.7.6. Loops and Conditionals
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#for-in-statements">
-     1.12.1.
+     1.7.6.1.
      <code class="docutils literal notranslate">
       <span class="pre">
        for
@@ -713,9 +716,9 @@
      Statements
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#if-statements">
-     1.12.2.
+     1.7.6.2.
      <code class="docutils literal notranslate">
       <span class="pre">
        if
@@ -724,9 +727,9 @@
      Statements
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#while-statements">
-     1.12.3.
+     1.7.6.3.
      <code class="docutils literal notranslate">
       <span class="pre">
        while
@@ -737,36 +740,36 @@
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#functions">
-   1.13. Functions
+   1.7.7. Functions
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#getting-help-and-completion">
-   1.14. Getting Help and Completion
+   1.7.8. Getting Help and Completion
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#python-modules-and-namespaces">
-   1.15. Python Modules and Namespaces
+   1.7.9. Python Modules and Namespaces
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#numpy-arrays">
-     1.15.1. NumPy Arrays
+     1.7.9.1. NumPy Arrays
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#writing-big-numbers-in-python">
-   1.16. Writing Big Numbers in Python
+   1.7.10. Writing Big Numbers in Python
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary-and-other-resources">
-   1.17. Summary and Other Resources
+   1.7.11. Summary and Other Resources
   </a>
  </li>
 </ul>
@@ -778,11 +781,12 @@
             
               <div>
                 
-  <p id="index-0">Getting Started in Python</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="getting-started-in-python">
+<span id="index-0"></span><h1><span class="section-number">1.7. </span>Getting Started in Python<a class="headerlink" href="#getting-started-in-python" title="Permalink to this headline">¶</a></h1>
 <p>Python is an interpreted language, which means that when any Code cell in a Jupyter notebook is evaluated, the Python code will be executed, and any output or error messages will appear in a new output portion of the cell that will appear just after input portion of the cell (that contains the Python code).</p>
 <p>At the bottom of the <code class="docutils literal notranslate"><span class="pre">Intro.ipynb</span></code> notebook, there is a blank cell where you can start entering Python code. If there is not already a blank cell there, click on the last cell and press <code class="docutils literal notranslate"><span class="pre">alt-Enter</span></code>.</p>
 <div class="section" id="hello-world">
-<h1><span class="section-number">1.7. </span>Hello World!<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">1.7.1. </span>Hello World!<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h2>
 <p>We start with the canonical example that appears in almost every programming book, which is to create a function that writes “Hello World!” to the screen/output.</p>
 <p>To print output in Python, use the <code class="docutils literal notranslate"><span class="pre">print</span></code> function, which is a built-in function in Python 3. Here a <em>function</em> is used to denote a <em>named</em> set of Python instructions that can be called on demand. Python functions are called by using the function name with parentheses after it. Functions can accept <em>arguments</em>, which are variables and values that the function can act on. The arguments for a function are put inside the parentheses, with commas separating different items.</p>
 <p>To output text using <code class="docutils literal notranslate"><span class="pre">print</span></code>, put it as an argument inside single or double quotation marks:</p>
@@ -909,7 +913,7 @@ World!
 </div>
 </div>
 <div class="section" id="comments">
-<h1><span class="section-number">1.8. </span>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">1.7.2. </span>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
 <p>Comments are text in your Python code that are ignored by the Python interpreter.
 Documentation is usually used to convey what you intend
 for your code to be doing – which is not always what it is actually doing!
@@ -941,7 +945,7 @@ may not remember what you meant for a block of code to do.</p>
 <p>When making custom functions, a multi-line string right after the function definition serves as the documentation string  (docstring) for that function.</p>
 </div>
 <div class="section" id="python-variables-and-types">
-<h1><span class="section-number">1.9. </span>Python Variables and Types<a class="headerlink" href="#python-variables-and-types" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">1.7.3. </span>Python Variables and Types<a class="headerlink" href="#python-variables-and-types" title="Permalink to this headline">¶</a></h2>
 <p>Variables are named entities that store values for future reference. In Python, variable names consists of alphanumeric characters (a-z, A-Z, 0-9) and underscores, but they cannot start with a number. Variable names are case sensitive.  Detailed descriptions of naming conventions for Python are given in <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/%5D">PEP 8 – Style Guide for Python Code</a>. Generally, we will follow these conventions:</p>
 <ul class="simple">
 <li><p>names should be descriptive, except when using as a simple index</p></li>
@@ -1140,7 +1144,7 @@ may not remember what you meant for a block of code to do.</p>
 </div>
 </div>
 <div class="section" id="basic-data-types">
-<span id="index-1"></span><h2><span class="section-number">1.9.1. </span>Basic Data Types<a class="headerlink" href="#basic-data-types" title="Permalink to this headline">¶</a></h2>
+<span id="index-1"></span><h3><span class="section-number">1.7.3.1. </span>Basic Data Types<a class="headerlink" href="#basic-data-types" title="Permalink to this headline">¶</a></h3>
 <p>Python has many data types built-in, and we have already seen a few of these: <em>int</em>, <em>float</em>, and <em>str</em> (string). In this book, we will also use a few other of Python’s built-in types.</p>
 <p>Boolean values are stored in <em>bool</em> variables that take on either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. Note that exact capitalization is required for these values.</p>
 <div class="cell docutils container">
@@ -1370,11 +1374,11 @@ test
 </div>
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">keys</span></code> and <code class="docutils literal notranslate"><span class="pre">values</span></code> methods return special objects of type <code class="docutils literal notranslate"><span class="pre">dict_keys</span></code> and <code class="docutils literal notranslate"><span class="pre">dict_values</span></code>, respectively, but for our purposes, we can treat these like lists. An example is shown in the Section <span class="xref std std-ref">python-intro:loops</span>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">keys</span></code> and <code class="docutils literal notranslate"><span class="pre">values</span></code> methods return special objects of type <code class="docutils literal notranslate"><span class="pre">dict_keys</span></code> and <code class="docutils literal notranslate"><span class="pre">dict_values</span></code>, respectively, but for our purposes, we can treat these like lists. An example is shown in the Section <a class="reference internal" href="#python-intro-loops"><span class="std std-ref">Loops and Conditionals</span></a>.</p>
 </div>
 </div>
 <div class="section" id="copying-variables">
-<h1><span class="section-number">1.10. </span>Copying Variables<a class="headerlink" href="#copying-variables" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">1.7.4. </span>Copying Variables<a class="headerlink" href="#copying-variables" title="Permalink to this headline">¶</a></h2>
 <p>You have to be careful when copying variables in Python or you may get some unexpected results. Suppose you have a variable c that contains a list, and you want to copy it to a variable d:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1466,7 +1470,7 @@ c= [0, 2]
 </div>
 </div>
 <div class="section" id="indentation-and-line-breaks-in-python">
-<h1><span class="section-number">1.11. </span>Indentation and Line Breaks in Python<a class="headerlink" href="#indentation-and-line-breaks-in-python" title="Permalink to this headline">¶</a></h1>
+<span id="python-intro-indentation"></span><h2><span class="section-number">1.7.5. </span>Indentation and Line Breaks in Python<a class="headerlink" href="#indentation-and-line-breaks-in-python" title="Permalink to this headline">¶</a></h2>
 <p>Line breaks in Python are usually used to distinguish different Python statements, and we will often use this convention in this book. Exceptions to this include:</p>
 <ul class="simple">
 <li><p>When a statement includes arguments in parentheses, line breaks can be used within the parentheses to improve readability. The statement will not terminate until the closing parenthesis, which should be followed by a line break.</p></li>
@@ -1520,9 +1524,9 @@ Amelia!
 <p>Either tabs or spaces can be used to denote code blocks, but the PEP-8 standard is to use 4 spaces per indent level. Jupyter inserts 4 spaces when <code class="docutils literal notranslate"><span class="pre">Tab</span></code> is pressed in a code block. <strong>Change to footnote: Some text editors can be set up to insert a prescribed number of spaces when tab is used or convert tabs to spaces upon saving.</strong></p>
 </div>
 <div class="section" id="loops-and-conditionals">
-<h1><span class="section-number">1.12. </span>Loops and Conditionals<a class="headerlink" href="#loops-and-conditionals" title="Permalink to this headline">¶</a></h1>
+<span id="python-intro-loops"></span><h2><span class="section-number">1.7.6. </span>Loops and Conditionals<a class="headerlink" href="#loops-and-conditionals" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="for-in-statements">
-<h2><span class="section-number">1.12.1. </span><code class="docutils literal notranslate"><span class="pre">for</span></code>… <code class="docutils literal notranslate"><span class="pre">in</span></code> Statements<a class="headerlink" href="#for-in-statements" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.7.6.1. </span><code class="docutils literal notranslate"><span class="pre">for</span></code>… <code class="docutils literal notranslate"><span class="pre">in</span></code> Statements<a class="headerlink" href="#for-in-statements" title="Permalink to this headline">¶</a></h3>
 <p>In data science, we often need to either iterate over data or carry out iterations of a simulation. For both purposes, we will usually relay on Python’s <code class="docutils literal notranslate"><span class="pre">for</span></code>…<code class="docutils literal notranslate"><span class="pre">in</span></code> statement. This is a type of <em>compound</em> statement. Compound statements consist of a <em>header</em> and a <em>suite</em> (Python’s terminology) or <em>body</em>. The header always ends in a colon, and the <em>suite</em> is one more statements that are run consecutively according to conditions in the header. For our purposes, we will always create the suite as a set of statements that are indented one more level than the corresponding header, with each statement on a new line.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">for</span></code>…<code class="docutils literal notranslate"><span class="pre">in</span></code> compound statement takes a variable after the <code class="docutils literal notranslate"><span class="pre">for</span></code> keyword. This variable will hold the current iteration value. It takes an <em>iterable</em> object, which is any object that can be iterated over. The typical one we will use for this is the <code class="docutils literal notranslate"><span class="pre">range</span></code> object that we have just introduced:</p>
 <div class="cell docutils container">
@@ -1637,7 +1641,7 @@ cherries
 </div>
 </div>
 <div class="section" id="if-statements">
-<h2><span class="section-number">1.12.2. </span><code class="docutils literal notranslate"><span class="pre">if</span></code> Statements<a class="headerlink" href="#if-statements" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.7.6.2. </span><code class="docutils literal notranslate"><span class="pre">if</span></code> Statements<a class="headerlink" href="#if-statements" title="Permalink to this headline">¶</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement is used to run code conditionally. If statements will often be inside other loop or conditional statements. For instance, to print out only the even numbers from 1 to 10, we can use an <code class="docutils literal notranslate"><span class="pre">if</span></code> inside a <code class="docutils literal notranslate"><span class="pre">for</span></code> statement:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1745,7 +1749,7 @@ cherries
 </div>
 </div>
 <div class="section" id="while-statements">
-<h2><span class="section-number">1.12.3. </span><code class="docutils literal notranslate"><span class="pre">while</span></code> statements<a class="headerlink" href="#while-statements" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.7.6.3. </span><code class="docutils literal notranslate"><span class="pre">while</span></code> statements<a class="headerlink" href="#while-statements" title="Permalink to this headline">¶</a></h3>
 <p>While loops combine looping and conditionals and operate similarly to while loops in other languages. The loop will continue as long as the condition specified in the <code class="docutils literal notranslate"><span class="pre">while</span></code> statement is satisifed:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1769,7 +1773,7 @@ cherries
 </div>
 </div>
 <div class="section" id="functions">
-<h1><span class="section-number">1.13. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
+<span id="python-intro-functions"></span><span id="index-2"></span><h2><span class="section-number">1.7.7. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <p>We have already used built-in functions, like <code class="docutils literal notranslate"><span class="pre">print()</span></code> and <code class="docutils literal notranslate"><span class="pre">type()</span></code>.
 In this book, we will also often create new functions. As with the built-in functions,
 user-defined functions can take arguments and can return values. Functions are declared
@@ -1934,7 +1938,7 @@ that returns the squared error between its inputs:</p>
 <p>We will see in the next section how to get help on a function.</p>
 </div>
 <div class="section" id="getting-help-and-completion">
-<h1><span class="section-number">1.14. </span>Getting Help and Completion<a class="headerlink" href="#getting-help-and-completion" title="Permalink to this headline">¶</a></h1>
+<span id="index-3"></span><h2><span class="section-number">1.7.8. </span>Getting Help and Completion<a class="headerlink" href="#getting-help-and-completion" title="Permalink to this headline">¶</a></h2>
 <p>Python has built-in help for almost every function and object. This help can be retrieved in several ways. For instance, consider the built-in <code class="docutils literal notranslate"><span class="pre">sum</span></code> command. Here are several ways to get help in Jupyter:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1974,7 +1978,7 @@ reject non-numeric types.
 </div>
 </div>
 </div>
-<p>For user-defined functions, ‘help’ will display the docstring you wrote. The following assumes that you have defined the function <code class="docutils literal notranslate"><span class="pre">squared_errors</span></code> from Section <span class="xref std std-ref">python-intro:functions</span></p>
+<p>For user-defined functions, ‘help’ will display the docstring you wrote. The following assumes that you have defined the function <code class="docutils literal notranslate"><span class="pre">squared_errors</span></code> from Section <a class="reference internal" href="#python-intro-functions"><span class="std std-ref">Functions</span></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>squared_error
@@ -2069,7 +2073,7 @@ dict(**kwargs) -&gt; new dictionary initialized with the name=value pairs
 </div>
 </div>
 <div class="section" id="python-modules-and-namespaces">
-<h1><span class="section-number">1.15. </span>Python Modules and Namespaces<a class="headerlink" href="#python-modules-and-namespaces" title="Permalink to this headline">¶</a></h1>
+<span id="index-4"></span><h2><span class="section-number">1.7.9. </span>Python Modules and Namespaces<a class="headerlink" href="#python-modules-and-namespaces" title="Permalink to this headline">¶</a></h2>
 <p>Python has many useful modules that extend Python’s basic functionality. Some of these are included with the base Python distributin and many others are included in the Anaconda distribution. Many more can be installed over the Internet.</p>
 <p>To use a module, you must import it into your Python working environment. The most basic way to do this is to type <code class="docutils literal notranslate"><span class="pre">import</span></code> followed by the name of the module to be imported:</p>
 <div class="cell docutils container">
@@ -2236,7 +2240,7 @@ array([  6,  24, 120])
 </div>
 </div>
 <div class="section" id="numpy-arrays">
-<span id="index-5"></span><h2><span class="section-number">1.15.1. </span>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h3><span class="section-number">1.7.9.1. </span>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h3>
 <p>NumPy provides an <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> container for holding one-dimensional or multi-dimensional collections of numbers. Most engineers will have some familiarity with vectors or matrices, and one-dimensional arrays are equivalent to vectors, while two-dimensional arrays are equivalent to matrices. The majority of our work on arrays and their mathematics (linear algebra) will be deferred to <strong>CHAPTER ON LINEAR ALGEBRA</strong>. However, arrays are very helpful for doing basic data manipulation and storing numerical values for simulations, so we review some basics here.</p>
 <p>Arrays can be created using NumPy’s <code class="docutils literal notranslate"><span class="pre">array</span></code> function. For instance, to create a one-dimensional array (i.e., a vector), pass a list of numbers to <code class="docutils literal notranslate"><span class="pre">np.array</span></code>:</p>
 <div class="cell docutils container">
@@ -2355,7 +2359,7 @@ array([  6,  24, 120])
 </div>
 </div>
 <div class="section" id="writing-big-numbers-in-python">
-<h1><span class="section-number">1.16. </span>Writing Big Numbers in Python<a class="headerlink" href="#writing-big-numbers-in-python" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">1.7.10. </span>Writing Big Numbers in Python<a class="headerlink" href="#writing-big-numbers-in-python" title="Permalink to this headline">¶</a></h2>
 <p>We will be building simulations in Python that require looping thousands or millions of times. Thus, we will often be writing a <code class="docutils literal notranslate"><span class="pre">range</span></code> that has an argument with many zeros. The <code class="docutils literal notranslate"><span class="pre">range</span></code> function will not take a <code class="docutils literal notranslate"><span class="pre">float</span></code> value, and numbers written in scientific notation (like <code class="docutils literal notranslate"><span class="pre">1e6</span></code>) will be treated as floats. This results in using integers that are very hard to read, like 10000000. We can’t use commas in the numbers because that would create a tuple:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2384,7 +2388,7 @@ array([  6,  24, 120])
 </div>
 </div>
 <div class="section" id="summary-and-other-resources">
-<h1><span class="section-number">1.17. </span>Summary and Other Resources<a class="headerlink" href="#summary-and-other-resources" title="Permalink to this headline">¶</a></h1>
+<span id="index-6"></span><h2><span class="section-number">1.7.11. </span>Summary and Other Resources<a class="headerlink" href="#summary-and-other-resources" title="Permalink to this headline">¶</a></h2>
 <p>Do not worry too much about absorbing all these details about Python now. This book contains many examples to get you started, and you can refer back to this section for reference. Some additional features of the Python programming language will be introduced as needed.</p>
 <p>For users who want to learn more about Python, the following resources are recommended:</p>
 <ul class="simple">
@@ -2392,6 +2396,7 @@ array([  6,  24, 120])
 <li><p><a class="reference external" href="https://scrimba.com/learn/python">Learn Python for free (https://scrimba.com/learn/python)</a> is a free 5-hour online introduction to Python (signup required)</p></li>
 <li><p>The Python documentation includes a <a class="reference external" href="https://docs.python.org/3/tutorial/">Python Tutorial (https://docs.python.org/3/tutorial/)</a></p></li>
 </ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -2429,7 +2434,7 @@ array([  6,  24, 120])
     <a class='right-next' id="next-link" href="review.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.18. </span>Review</p>
+        <p class="prev-next-title"><span class="section-number">1.8. </span>Review</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

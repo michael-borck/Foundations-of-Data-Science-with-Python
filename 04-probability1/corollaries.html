@@ -37,9 +37,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -136,12 +139,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-intro/python-start.html">
-     1.7. Hello World!
+     1.7. Getting Started in Python
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-intro/review.html">
-     1.18. Review
+     1.8. Review
     </a>
    </li>
   </ul>
@@ -593,8 +596,8 @@ P(A) = 1 - P(\overline{A}).
 P(\emptyset) = 1 - P(\overline{\emptyset}).
 \]</div>
 <p>But <span class="math notranslate nohighlight">\(\overline{\emptyset} =S\)</span>. Thus,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4faf6aaf-cd62-42b5-a4c1-ae3a079d5794">
-<span class="eqno">(4.3)<a class="headerlink" href="#equation-4faf6aaf-cd62-42b5-a4c1-ae3a079d5794" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c2fd32cf-8ebd-475a-bab5-7391e7517b92">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-c2fd32cf-8ebd-475a-bab5-7391e7517b92" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(\emptyset) &amp;= 1 - P(S) \\
 &amp;= 1-1 \\
 &amp;=0
