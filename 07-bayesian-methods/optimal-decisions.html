@@ -56,7 +56,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7.4. Outline of Remaining Sections" href="outline.html" />
+    <link rel="next" title="7.4. Bayesian Hypothesis Testing" href="bayesian-hypothesis-testing.html" />
     <link rel="prev" title="7.2. Bayes’ Rule in Systems with Hidden State" href="bayes-hidden-state.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -91,7 +91,7 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../intro/intro.html">
+  <a class="reference internal" href="../intro.html">
    Foundations of Data Science with Python
   </a>
  </li>
@@ -388,8 +388,18 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="outline.html">
-     7.4. Outline of Remaining Sections
+    <a class="reference internal" href="bayesian-hypothesis-testing.html">
+     7.4. Bayesian Hypothesis Testing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="review.html">
+     7.8. Review
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="summary.html">
+     7.9. Summary
     </a>
    </li>
   </ul>
@@ -1104,8 +1114,8 @@ P\left(A_0 \left \vert B_j \right. \right)
 P(A_i|B_j) = \frac{P(B_j|A_i)P(A_i)}{\sum_i P(B_j|A_i)P(A_i)}.
 \]</div>
 <p>If only the MAP decision is needed, then <a class="reference internal" href="#equation-binary-map">(7.2)</a> can be simplified:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bee62b46-2849-4c63-9a4f-d8a827310b46">
-<span class="eqno">(7.3)<a class="headerlink" href="#equation-bee62b46-2849-4c63-9a4f-d8a827310b46" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fb232be1-3055-4db3-960a-1a3944cae50d">
+<span class="eqno">(7.3)<a class="headerlink" href="#equation-fb232be1-3055-4db3-960a-1a3944cae50d" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left(A_0 \left \vert B_j \right. \right)  &amp; \underset{1}{\overset{0}{\gtrless}}  P \left( A_1 \left \vert B_j \right. \right)\\
 \frac{P(B_j|A_0)P(A_0)}{\sum_i P(B_j|A_i)P(A_i)} &amp; \underset{1}{\overset{0}{\gtrless}}
 \frac{P(B_j|A_1)P(A_1)}{\sum_i P(B_j|A_i)P(A_i)} \\
@@ -1650,7 +1660,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardsipjCKiFKnvSj=[
+    cardsbyxIbRsnwuuN=[
     {
         "front": "decision rule<br>(discrete stochastic system)",
         "back": "For a discrete stochastic system with inputs (or hidden states) $\\{A_i\\}$ and outputs $\\{B_j\\}$, a <I>decision rule</I> for an observation $B_j$ gives a choice of corresponding input event $A_i$.<br> The decision rule may be chosen to optimize some function of the inputs and outputs (e.g., likelihood or APP)."
@@ -1674,14 +1684,14 @@ function createCards(id) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/07-bayesian-methods/flashcards/optimal-decisions.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("ipjCKiFKnvSj"))
+        .then(json => createCards("byxIbRsnwuuN"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("ipjCKiFKnvSj");
+        createCards("byxIbRsnwuuN");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="ipjCKiFKnvSj" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="ipjCKiFKnvSj-next" onclick="checkFlip('ipjCKiFKnvSj')"> </div> <div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="byxIbRsnwuuN" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="byxIbRsnwuuN-next" onclick="checkFlip('byxIbRsnwuuN')"> </div> <div style="height:40px"></div></div></div>
 </div>
 </div>
 </div>
@@ -1718,10 +1728,10 @@ function createCards(id) {
             <p class="prev-next-title"><span class="section-number">7.2. </span>Bayes’ Rule in Systems with Hidden State</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="outline.html" title="next page">
+    <a class='right-next' id="next-link" href="bayesian-hypothesis-testing.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7.4. </span>Outline of Remaining Sections</p>
+        <p class="prev-next-title"><span class="section-number">7.4. </span>Bayesian Hypothesis Testing</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
