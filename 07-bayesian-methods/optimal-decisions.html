@@ -620,8 +620,8 @@
 </div>
 </div>
 <p>Let’s start by considering one particular instantiation of this problem:</p>
-<div class="section" id="binary-communication-system">
-<h2><span class="section-number">7.3.1. </span>Binary Communication System<a class="headerlink" href="#binary-communication-system" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-0"></span><div class="section" id="binary-communication-system">
+<span id="index-1"></span><h2><span class="section-number">7.3.1. </span>Binary Communication System<a class="headerlink" href="#binary-communication-system" title="Permalink to this headline">¶</a></h2>
 <p>Suppose we are given a system with that has binary inputs and ternary outputs. Let’s use <span class="math notranslate nohighlight">\(A_0\)</span> and <span class="math notranslate nohighlight">\(A_1\)</span> to denote the input events and <span class="math notranslate nohighlight">\(B_0\)</span>, <span class="math notranslate nohighlight">\(B_1\)</span>, and <span class="math notranslate nohighlight">\(B_2\)</span> to denote the output events. The channel is completely specified by giving the likelihoods, <span class="math notranslate nohighlight">\(P(B_j|A_i)\)</span> for all <span class="math notranslate nohighlight">\(i \in \{0,1\}\)</span> and $j \in {0,1,2}.</p>
 <p>Let <span class="math notranslate nohighlight">\(p_{ij} = P(B_j|A_i)\)</span>. Note the order of the <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>.  This is the probability of transitioning from input <span class="math notranslate nohighlight">\(i\)</span> to output <span class="math notranslate nohighlight">\(j\)</span>, and these are also called <em>channel transition probabilities</em>. It is helpful to visualize the channel transition probabilities/likelihoods on a diagram, where we label the arrow connecting input event <span class="math notranslate nohighlight">\(A_i\)</span> with output event <span class="math notranslate nohighlight">\(B_j\)</span> by <span class="math notranslate nohighlight">\(p_{ij}\)</span>. An  example of such a diagram is shown in <a class="reference internal" href="#example2to3"><span class="std std-numref">Fig. 7.1</span></a>. For example, from this diagram, we can read that <span class="math notranslate nohighlight">\(p_{00}=5/8\)</span>, <span class="math notranslate nohighlight">\(p_{01}=1/4\)</span>, and <span class="math notranslate nohighlight">\(p_{12}=3/4\)</span>.</p>
 <div class="figure align-default" id="example2to3">
@@ -685,16 +685,16 @@
 </div>
 </div>
 </div>
-</div>
+<span class="target" id="index-2"></span></div>
 <div class="section" id="decision-problem-and-decision-rules">
-<h2><span class="section-number">7.3.2. </span>Decision Problem and Decision Rules<a class="headerlink" href="#decision-problem-and-decision-rules" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2><span class="section-number">7.3.2. </span>Decision Problem and Decision Rules<a class="headerlink" href="#decision-problem-and-decision-rules" title="Permalink to this headline">¶</a></h2>
 <p>The <em>decision problem</em> for the binary communication systems is concisely described as follows: given the observed output, determine which input was sent.  A <em>decision rule</em> tells how to choose an input given an observed output. In general, a decision rule may result in a randomized choice for the input,  but in this class, we will only consider deterministic decision rules.</p>
 <p>We can turn this into an <em>optimal decision problem</em> if we specify criteria to be optimized. Here are two common criteria:</p>
 <ol class="simple">
 <li><p>Maximize the likelihood of the input</p></li>
 <li><p>Choose the input that minimizes the probability of error</p></li>
 </ol>
-<p>The optimum decision under criterion 1 is called the <em>maximum likelihood (ML)</em> decision. In this problem, the likelihoods are of the form <span class="math notranslate nohighlight">\(P(B_j|A_i)\)</span>. Let <span class="math notranslate nohighlight">\(\hat{A}_i\)</span> denote the event that the receiver decides that input was <span class="math notranslate nohighlight">\(i\)</span>. Then the ML decision rule given <span class="math notranslate nohighlight">\(B_j\)</span> is observed is</p>
+<span class="target" id="index-4"></span><p id="index-5">The optimum decision under criterion 1 is called the <em>maximum likelihood (ML)</em> decision. In this problem, the likelihoods are of the form <span class="math notranslate nohighlight">\(P(B_j|A_i)\)</span>. Let <span class="math notranslate nohighlight">\(\hat{A}_i\)</span> denote the event that the receiver decides that input was <span class="math notranslate nohighlight">\(i\)</span>. Then the ML decision rule given <span class="math notranslate nohighlight">\(B_j\)</span> is observed is</p>
 <div class="math notranslate nohighlight">
 \[
 \hat{A}_i, \mbox{ where } i = \arg \max_{i \in \{0,1\}} P(B_j|A_i).
@@ -753,7 +753,7 @@ P(B2) = 0.125
 <li><p>if <span class="math notranslate nohighlight">\(P(A_0)&lt;q_0\)</span>, the ML rule performs better, and</p></li>
 <li><p>if <span class="math notranslate nohighlight">\(P(A_0)&gt;q_0\)</span>, always deciding <span class="math notranslate nohighlight">\(A_0\)</span> performs better.</p></li>
 </ul>
-<p>Let’s build a simulation to test this. First, we will see how to efficiently generate the events <span class="math notranslate nohighlight">\(A_0\)</span> and <span class="math notranslate nohighlight">\(A_1\)</span> given any probabilities <span class="math notranslate nohighlight">\(P(A_0)\)</span> and <span class="math notranslate nohighlight">\(P(A_1)\)</span> such that <span class="math notranslate nohighlight">\(P(A_0)+P(A_1) = 1\)</span>. We will again use NumPy’s <code class="docutils literal notranslate"><span class="pre">npr.choice()</span></code> function, but we will now pass it the probability information as a keyword parameter. Take a look at the help for <code class="docutils literal notranslate"><span class="pre">npr.choice()</span></code>:</p>
+<span class="target" id="index-6"></span><p id="index-7">Let’s build a simulation to test this. First, we will see how to efficiently generate the events <span class="math notranslate nohighlight">\(A_0\)</span> and <span class="math notranslate nohighlight">\(A_1\)</span> given any probabilities <span class="math notranslate nohighlight">\(P(A_0)\)</span> and <span class="math notranslate nohighlight">\(P(A_1)\)</span> such that <span class="math notranslate nohighlight">\(P(A_0)+P(A_1) = 1\)</span>. We will again use NumPy’s <code class="docutils literal notranslate"><span class="pre">npr.choice()</span></code> function, but we will now pass it the probability information as a keyword parameter. Take a look at the help for <code class="docutils literal notranslate"><span class="pre">npr.choice()</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -784,18 +784,17 @@ Parameters
 ----------
 a : 1-D array-like or int
     If an ndarray, a random sample is generated from its elements.
-    If an int, the random sample is generated as if it were ``np.arange(a)``
+    If an int, the random sample is generated as if a were np.arange(a)
 size : int or tuple of ints, optional
     Output shape.  If the given shape is, e.g., ``(m, n, k)``, then
     ``m * n * k`` samples are drawn.  Default is None, in which case a
     single value is returned.
 replace : boolean, optional
-    Whether the sample is with or without replacement. Default is True,
-    meaning that a value of ``a`` can be selected multiple times.
+    Whether the sample is with or without replacement
 p : 1-D array-like, optional
     The probabilities associated with each entry in a.
-    If not given, the sample assumes a uniform distribution over all
-    entries in ``a``.
+    If not given the sample assumes a uniform distribution over all
+    entries in a.
 
 Returns
 -------
@@ -818,10 +817,6 @@ Generator.choice: which should be used in new code
 
 Notes
 -----
-Setting user-specified probabilities through ``p`` uses a more general but less
-efficient sampler than the default. The general sampler produces a different sample
-than the optimized sampler even if each element of ``p`` is 1 / len(a).
-
 Sampling random rows from a 2-D array is not possible with this function,
 but is possible with `Generator.choice` through its ``axis`` keyword.
 
@@ -879,7 +874,7 @@ array([&#39;pooh&#39;, &#39;pooh&#39;, &#39;pooh&#39;, &#39;Christopher&#39;, &#
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.759
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.753
 </pre></div>
 </div>
 </div>
@@ -891,7 +886,7 @@ array([&#39;pooh&#39;, &#39;pooh&#39;, &#39;pooh&#39;, &#39;Christopher&#39;, &#
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.241
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.247
 </pre></div>
 </div>
 </div>
@@ -971,7 +966,7 @@ array([&#39;pooh&#39;, &#39;pooh&#39;, &#39;pooh&#39;, &#39;Christopher&#39;, &#
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The error probability is approximately 0.20
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.19986
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.20242
 </pre></div>
 </div>
 </div>
@@ -993,10 +988,10 @@ array([&#39;pooh&#39;, &#39;pooh&#39;, &#39;pooh&#39;, &#39;Christopher&#39;, &#
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The error probability is approximately 0.13
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The error probability is approximately 0.12
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.12527
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.12494
 </pre></div>
 </div>
 </div>
@@ -1011,7 +1006,7 @@ array([&#39;pooh&#39;, &#39;pooh&#39;, &#39;pooh&#39;, &#39;Christopher&#39;, &#
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The error probability is approximately 0.15
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1513
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.14946
 </pre></div>
 </div>
 </div>
@@ -1054,16 +1049,16 @@ array([&#39;pooh&#39;, &#39;pooh&#39;, &#39;pooh&#39;, &#39;Christopher&#39;, &#
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 21/21 [02:56&lt;00:00,  8.39s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 21/21 [02:32&lt;00:00,  7.27s/it]
 </pre></div>
 </div>
 <img alt="../_images/optimal-decisions_37_1.png" src="../_images/optimal-decisions_37_1.png" />
 </div>
 </div>
 <p>From the figure, we can see that each of these three different decision rules minimize the probability of error over some specific range of <span class="math notranslate nohighlight">\(P(A_0)\)</span>. For low <span class="math notranslate nohighlight">\(P(A_0)\)</span>, it is best to always decide <span class="math notranslate nohighlight">\(A_1\)</span>. For medium <span class="math notranslate nohighlight">\(P(A_0)\)</span> (in the range <span class="math notranslate nohighlight">\(0.2 &lt; P(A_0) &lt; 0.85\)</span>), it appears that it is best to apply the ML rule, and for larger <span class="math notranslate nohighlight">\(P(A_0)\)</span>, it is best to always decide <span class="math notranslate nohighlight">\(A_0\)</span>. And other decision rules are possible. We need a principled way to determine the optimum decision rule to minimize the error probability.</p>
-</div>
+<span class="target" id="index-8"></span><span class="target" id="index-9"></span><span class="target" id="index-10"></span><span class="target" id="index-11"></span><span class="target" id="index-12"></span></div>
 <div class="section" id="optimal-decisions-to-minimize-the-probability-of-error-the-map-rule">
-<h2><span class="section-number">7.3.3. </span>Optimal Decisions to Minimize the Probability of Error: The MAP Rule<a class="headerlink" href="#optimal-decisions-to-minimize-the-probability-of-error-the-map-rule" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2><span class="section-number">7.3.3. </span>Optimal Decisions to Minimize the Probability of Error: The MAP Rule<a class="headerlink" href="#optimal-decisions-to-minimize-the-probability-of-error-the-map-rule" title="Permalink to this headline">¶</a></h2>
 <p>As before, let <span class="math notranslate nohighlight">\(\hat{A}_i\)</span> denote the event that the decision is <span class="math notranslate nohighlight">\(i\)</span>. Then an error occurs if the decision is different than the actual input event. Let <span class="math notranslate nohighlight">\(E\)</span> denote the error event, so</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1109,8 +1104,8 @@ P\left(A_0 \left \vert B_j \right. \right)
 P(A_i|B_j) = \frac{P(B_j|A_i)P(A_i)}{\sum_i P(B_j|A_i)P(A_i)}.
 \]</div>
 <p>If only the MAP decision is needed, then <a class="reference internal" href="#equation-binary-map">(7.2)</a> can be simplified:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8e0a86b2-362a-4bfc-8611-feac7b070c5d">
-<span class="eqno">(7.3)<a class="headerlink" href="#equation-8e0a86b2-362a-4bfc-8611-feac7b070c5d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bee62b46-2849-4c63-9a4f-d8a827310b46">
+<span class="eqno">(7.3)<a class="headerlink" href="#equation-bee62b46-2849-4c63-9a4f-d8a827310b46" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left(A_0 \left \vert B_j \right. \right)  &amp; \underset{1}{\overset{0}{\gtrless}}  P \left( A_1 \left \vert B_j \right. \right)\\
 \frac{P(B_j|A_0)P(A_0)}{\sum_i P(B_j|A_i)P(A_i)} &amp; \underset{1}{\overset{0}{\gtrless}}
 \frac{P(B_j|A_1)P(A_1)}{\sum_i P(B_j|A_i)P(A_i)} \\
@@ -1188,7 +1183,7 @@ P(A1|B2) = 0.96
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 21/21 [03:34&lt;00:00, 10.20s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████| 21/21 [03:36&lt;00:00, 10.32s/it]
 </pre></div>
 </div>
 <img alt="../_images/optimal-decisions_43_1.png" src="../_images/optimal-decisions_43_1.png" />
@@ -1655,7 +1650,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardsXRTjIaAmkWrV=[
+    cardsipjCKiFKnvSj=[
     {
         "front": "decision rule<br>(discrete stochastic system)",
         "back": "For a discrete stochastic system with inputs (or hidden states) $\\{A_i\\}$ and outputs $\\{B_j\\}$, a <I>decision rule</I> for an observation $B_j$ gives a choice of corresponding input event $A_i$.<br> The decision rule may be chosen to optimize some function of the inputs and outputs (e.g., likelihood or APP)."
@@ -1679,14 +1674,14 @@ function createCards(id) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/07-bayesian-methods/flashcards/optimal-decisions.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("XRTjIaAmkWrV"))
+        .then(json => createCards("ipjCKiFKnvSj"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("XRTjIaAmkWrV");
+        createCards("ipjCKiFKnvSj");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="XRTjIaAmkWrV" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="XRTjIaAmkWrV-next" onclick="checkFlip('XRTjIaAmkWrV')"> </div> <div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="ipjCKiFKnvSj" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="ipjCKiFKnvSj-next" onclick="checkFlip('ipjCKiFKnvSj')"> </div> <div style="height:40px"></div></div></div>
 </div>
 </div>
 </div>

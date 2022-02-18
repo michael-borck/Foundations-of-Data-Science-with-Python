@@ -2400,8 +2400,8 @@ if (typeof version == 'undefined') {
 <p>I.e., if the probability of an event <span class="math notranslate nohighlight">\(A\)</span> occurring does not depend on whether some event <span class="math notranslate nohighlight">\(B\)</span> occurs, then it cannot depend on whether the event <span class="math notranslate nohighlight">\(B\)</span> does not occur.  This probably matches your intuition. However, we should verify it. Let’s check the first example. We need to evaluate <span class="math notranslate nohighlight">\(P(A \cap \overline{B})\)</span> to see if it factors as <span class="math notranslate nohighlight">\(P(A)P(\overline{B})\)</span>. Referring to the Venn diagram below, we can see that <span class="math notranslate nohighlight">\(A\)</span> consists of the union of the mutually exclusive parts,  <span class="math notranslate nohighlight">\(A \cap B\)</span> and <span class="math notranslate nohighlight">\(A \cap \overline{B}\)</span>. So we can write <span class="math notranslate nohighlight">\(P\left(A \cap \overline{B} \right)= P(A) - P(A \cap B)\)</span>.</p>
 <a class="reference internal image-reference" href="../_images/si-intersection.png"><img alt="Venn Diagram Showing Relation of $A$, $A \cap \overline{B}$, and $A \cap B$" src="../_images/si-intersection.png" style="width: 400px;" /></a>
 <p>Then by utilizing the fact that <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are s.i., we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-19c1316f-39e2-4aa7-a924-bb55e9d3902b">
-<span class="eqno">(6.3)<a class="headerlink" href="#equation-19c1316f-39e2-4aa7-a924-bb55e9d3902b" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-434e86dc-085a-415f-9459-9cd607e05c2f">
+<span class="eqno">(6.3)<a class="headerlink" href="#equation-434e86dc-085a-415f-9459-9cd607e05c2f" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left(A \cap \overline{B} \right) &amp;= P(A) - P(A \cap B) \\
  &amp;= P(A) - P(A) P(B) \\
  &amp;= P(A) \left[ 1- P\left(B\right) \right] \\
@@ -2411,8 +2411,8 @@ P\left(A \cap \overline{B} \right) &amp;= P(A) - P(A \cap B) \\
 <p><strong>Example</strong></p>
 <p><strong>(Take 4)</strong> A fair six-sided die is rolled twice.  What is the probability that either of the rolls is a value less than 3?</p>
 <p>As before, let <span class="math notranslate nohighlight">\(E_i\)</span> be the event that the top face on roll <span class="math notranslate nohighlight">\(i\)</span> is less than 3, for <span class="math notranslate nohighlight">\(i=1,2\)</span>, and <span class="math notranslate nohighlight">\(E_1\)</span> and <span class="math notranslate nohighlight">\(E_2\)</span> are s.i. then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ef20af0a-49f6-454c-8002-a540422b5107">
-<span class="eqno">(6.4)<a class="headerlink" href="#equation-ef20af0a-49f6-454c-8002-a540422b5107" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2613d3e1-49c1-46b6-9cf7-82d3db4e8a0d">
+<span class="eqno">(6.4)<a class="headerlink" href="#equation-2613d3e1-49c1-46b6-9cf7-82d3db4e8a0d" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_1 \cup E_2) &amp;= 1 - P\left(\overline{E_1 \cup E_2}\right) \\
 &amp;= 1 - P\left( \overline{E_1} \cap \overline{E_2} \right) \\
 &amp;= 1 - P\left( \overline{E_1} \right) P\left( \overline{E_2} \right) \\
@@ -2435,8 +2435,8 @@ P(E_1 \cup E_2) &amp;= 1 - P\left(\overline{E_1 \cup E_2}\right) \\
 <dt>statistically independent (for any number of events)</dt><dd><p class="card-text">Given a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\)</span>, a collection of events <span class="math notranslate nohighlight">\(E_0, E_1, \ldots E_{n-1}\)</span> in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> are {\it statistically independent} if and only if (iff)</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-6579bc16-584e-402b-939a-4d369c152243">
-<span class="eqno">(6.5)<a class="headerlink" href="#equation-6579bc16-584e-402b-939a-4d369c152243" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-769a4421-60ec-4194-a7cd-a1c50591379d">
+<span class="eqno">(6.5)<a class="headerlink" href="#equation-769a4421-60ec-4194-a7cd-a1c50591379d" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j \\
 P(E_i \cap E_j \cap E_k) &amp;= P(E_i) P(E_j) P(E_k), ~~ \forall i \ne j \ne k \\
 \ldots
@@ -2460,8 +2460,8 @@ P(E_0 \cap E_1 \cap \ldots \cap E_{n-1}) &amp;= P(E_0) P(E_1) \cdots P(E_{n-1}),
 <dt>pairwise statistically independent</dt><dd><p class="card-text">Given a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\)</span>, a collection of events <span class="math notranslate nohighlight">\(E_0, E_1, \ldots E_{n-1}\)</span> in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> are {\it pairwise statistically independent} if and only if (iff)</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-38f8378f-e817-4b52-8f9d-0f3d4e981f77">
-<span class="eqno">(6.6)<a class="headerlink" href="#equation-38f8378f-e817-4b52-8f9d-0f3d4e981f77" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-63d923b5-8a22-4cf4-bb0e-84edac86468e">
+<span class="eqno">(6.6)<a class="headerlink" href="#equation-63d923b5-8a22-4cf4-bb0e-84edac86468e" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j 
 \end{align}\]</div>
 </div>
@@ -2470,8 +2470,8 @@ P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j
 </div>
 </div>
 <p>We want to use complements to convert the unions to intersections and the resulting general form looks like</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5424ba21-73b2-4d14-b8e2-640d4a950044">
-<span class="eqno">(6.7)<a class="headerlink" href="#equation-5424ba21-73b2-4d14-b8e2-640d4a950044" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1d182d19-ebb4-4c77-be7b-25ca12bb8ca2">
+<span class="eqno">(6.7)<a class="headerlink" href="#equation-1d182d19-ebb4-4c77-be7b-25ca12bb8ca2" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left( \bigcup_i E_i \right) &amp;=
 1- \prod_i \left[ 1- P\left( E_i \right) \right].
 \end{align}\]</div>
