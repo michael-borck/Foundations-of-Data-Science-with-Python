@@ -1,5 +1,5 @@
 format: jb-article
-root: intro/intro
+root: intro
 options:
   numbered: true
 sections:
