@@ -45,15 +45,14 @@
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="7.4. Bayesian Hypothesis Testing" href="bayesian-hypothesis-testing.html" />
@@ -404,10 +403,27 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../08-random-variables/outline.html">
-   8. Random Variables (Outline)
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../08-random-variables/intro.html">
+   8. Random Variables (In Progress)
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-random-variables/definition.html">
+     8.1. Definition of a Real Random Variable
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-random-variables/outline.html">
+     8.2. Discrete Random Variables and Probability Mass Functions
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../09-moments/outline.html">
@@ -1114,8 +1130,8 @@ P\left(A_0 \left \vert B_j \right. \right)
 P(A_i|B_j) = \frac{P(B_j|A_i)P(A_i)}{\sum_i P(B_j|A_i)P(A_i)}.
 \]</div>
 <p>If only the MAP decision is needed, then <a class="reference internal" href="#equation-binary-map">(7.2)</a> can be simplified:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f8e958fe-ea73-43d6-b7eb-11a108ce9c78">
-<span class="eqno">(7.3)<a class="headerlink" href="#equation-f8e958fe-ea73-43d6-b7eb-11a108ce9c78" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d988275a-5d04-4bc5-a305-f1665f6c46c8">
+<span class="eqno">(7.3)<a class="headerlink" href="#equation-d988275a-5d04-4bc5-a305-f1665f6c46c8" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left(A_0 \left \vert B_j \right. \right)  &amp; \underset{1}{\overset{0}{\gtrless}}  P \left( A_1 \left \vert B_j \right. \right)\\
 \frac{P(B_j|A_0)P(A_0)}{\sum_i P(B_j|A_i)P(A_i)} &amp; \underset{1}{\overset{0}{\gtrless}}
 \frac{P(B_j|A_1)P(A_1)}{\sum_i P(B_j|A_i)P(A_i)} \\

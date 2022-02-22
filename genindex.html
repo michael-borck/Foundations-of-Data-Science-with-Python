@@ -45,6 +45,12 @@
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -393,10 +399,27 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="08-random-variables/outline.html">
-   8. Random Variables (Outline)
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="08-random-variables/intro.html">
+   8. Random Variables (In Progress)
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08-random-variables/definition.html">
+     8.1. Definition of a Real Random Variable
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08-random-variables/outline.html">
+     8.2. Discrete Random Variables and Probability Mass Functions
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="09-moments/outline.html">
@@ -581,20 +604,26 @@
         <li><a href="07-bayesian-methods/bayes-rule.html#term-Bayes-Rule-discrete-stochastic-system"><strong>discrete stochastic system</strong></a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="07-bayesian-methods/optimal-decisions.html#index-1">binary communication system</a>
 
       <ul>
         <li><a href="07-bayesian-methods/optimal-decisions.html#index-8">optimal decision rules</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="04-probability1/combinatorics.html#index-8">binomial coefficient</a>
 
       <ul>
         <li><a href="04-probability1/combinatorics.html#index-9">SciPy function</a>
 </li>
       </ul></li>
+      <li><a href="08-random-variables/definition.html#index-1">Borel $\sigma$-algebra</a>
+</li>
+      <li><a href="08-random-variables/definition.html#index-0">Borel field</a>
+</li>
+      <li><a href="08-random-variables/definition.html#term-Borel-sets-of-mathbb-R"><strong>Borel sets (of \mathbb{R})</strong></a>
+</li>
       <li><a href="07-bayesian-methods/bayes-rule.html#index-0">breast cancer example</a>
 </li>
   </ul></td>
@@ -841,10 +870,12 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="02-first-stats/first-vis.html#term-relative-frequency"><strong>relative frequency</strong></a>
+      <li><a href="08-random-variables/definition.html#term-random-variable"><strong>random variable</strong></a>, <a href="08-random-variables/intro.html#term-random-variable"><strong>[1]</strong></a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="02-first-stats/first-vis.html#term-relative-frequency"><strong>relative frequency</strong></a>
+</li>
       <li><a href="04-probability1/relative-frequency.html#term-repeated-experiment"><strong>repeated experiment</strong></a>
 </li>
   </ul></td>

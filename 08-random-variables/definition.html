@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>15. Working with Dependent Data in Multiple Dimensions (Outline) &#8212; Foundations of Data Science with Python</title>
+    <title>8.1. Definition of a Real Random Variable &#8212; Foundations of Data Science with Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,10 +51,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="16. Next Steps (Outline)" href="../16-next-steps/outline.html" />
-    <link rel="prev" title="14. Applications of Matrices to Solving Equations, Curve Fitting, and Regression (Outline)" href="../14-matrix-applications/outline.html" />
+    <link rel="next" title="8.2. Discrete Random Variables and Probability Mass Functions" href="outline.html" />
+    <link rel="prev" title="8. Random Variables (In Progress)" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -401,23 +403,23 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../08-random-variables/intro.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
    8. Random Variables (In Progress)
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
   <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../08-random-variables/definition.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      8.1. Definition of a Real Random Variable
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../08-random-variables/outline.html">
+    <a class="reference internal" href="outline.html">
      8.2. Discrete Random Variables and Probability Mass Functions
     </a>
    </li>
@@ -453,8 +455,8 @@ const thebe_selector_output = ".output, .cell_output"
    14. Applications of Matrices to Solving Equations, Curve Fitting, and Regression (Outline)
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../15-multidim-dependence/outline.html">
    15. Working with Dependent Data in Multiple Dimensions (Outline)
   </a>
  </li>
@@ -509,7 +511,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/15-multidim-dependence/outline.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/08-random-variables/definition.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -534,7 +536,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/15-multidim-dependence/outline.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/08-random-variables/definition.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -551,69 +553,6 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   15.1. Introduction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jointly-distributed-random-variables-two-dimensions">
-   15.2. Jointly Distributed Random Variables (Two-dimensions)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jointly-distributed-gaussian-random-variables">
-   15.3. Jointly Distributed Gaussian Random Variables
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#linear-transformations-affects-on-covariance-and-correlation-matrices">
-   15.4. Linear Transformations Affects on Covariance and Correlation Matrices
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#eigendecomposition-of-a-linear-transformation">
-   15.5. Eigendecomposition of a Linear Transformation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#decorrelation-of-random-variables-and-applications">
-   15.6. Decorrelation of Random Variables and Applications
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#properties-of-eigenvectors-and-the-klt">
-   15.7. Properties of Eigenvectors and the KLT
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#principal-components-analysis-pca">
-   15.8. Principal Components Analysis (PCA)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#non-statistical-matrix-decomposition-and-approximation-singular-value-decomposition-svd">
-   15.9. Non-statistical Matrix Decomposition and Approximation: Singular Value Decomposition (SVD)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#review">
-   15.10. Review
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   15.11. Summary
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -621,116 +560,115 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Working with Dependent Data in Multiple Dimensions (Outline)</h1>
+                <h1>Definition of a Real Random Variable</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   15.1. Introduction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jointly-distributed-random-variables-two-dimensions">
-   15.2. Jointly Distributed Random Variables (Two-dimensions)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jointly-distributed-gaussian-random-variables">
-   15.3. Jointly Distributed Gaussian Random Variables
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#linear-transformations-affects-on-covariance-and-correlation-matrices">
-   15.4. Linear Transformations Affects on Covariance and Correlation Matrices
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#eigendecomposition-of-a-linear-transformation">
-   15.5. Eigendecomposition of a Linear Transformation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#decorrelation-of-random-variables-and-applications">
-   15.6. Decorrelation of Random Variables and Applications
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#properties-of-eigenvectors-and-the-klt">
-   15.7. Properties of Eigenvectors and the KLT
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#principal-components-analysis-pca">
-   15.8. Principal Components Analysis (PCA)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#non-statistical-matrix-decomposition-and-approximation-singular-value-decomposition-svd">
-   15.9. Non-statistical Matrix Decomposition and Approximation: Singular Value Decomposition (SVD)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#review">
-   15.10. Review
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   15.11. Summary
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="working-with-dependent-data-in-multiple-dimensions-outline">
-<h1><span class="section-number">15. </span>Working with Dependent Data in Multiple Dimensions (Outline)<a class="headerlink" href="#working-with-dependent-data-in-multiple-dimensions-outline" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduction">
-<h2><span class="section-number">15.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="definition-of-a-real-random-variable">
+<h1><span class="section-number">8.1. </span>Definition of a Real Random Variable<a class="headerlink" href="#definition-of-a-real-random-variable" title="Permalink to this headline">¶</a></h1>
+<p>In the introduction, we provided an informal definition for a random variable. The informal definition is helpful to build some intuition about what we mean by a random variable. However, we want to develop random variables in such a way that we can take advantage of all of the properties of the <em>probability spaces</em> that we developed in <span class="xref std std-doc">../04-probability1/axiomatic-prob.ipynb</span>.  In this class, we will only consider the case of <strong>real</strong> random variables, but random variables can also be complex-valued.</p>
+<p>Let’s start by introducing some notation that we will use for  random variables and in our discussion below:</p>
+<ul class="simple">
+<li><p>We will generally use upper-case (capital) letters to represent a random variable, such as <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span>, or <span class="math notranslate nohighlight">\(Z\)</span>. We may choose the letter to represent a particular quantity, such as representing a random time by <span class="math notranslate nohighlight">\(T\)</span> or a random rate by <span class="math notranslate nohighlight">\(R\)</span>. For a generic random variable, we will usually use <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
+<li><p>We want to ask about the probability that a random variable’s value lies in some set. Until now, we have used <span class="math notranslate nohighlight">\(P\)</span> to denote either a probability or a probability measure. We will draw a distinction between these below, where we will write <span class="math notranslate nohighlight">\(\operatorname{Pr}()\)</span> to denote a probability and <span class="math notranslate nohighlight">\(P()\)</span> to denote a particular probability measure.</p></li>
+<li><p>We will have the need to provide notation for an arbitrary value that a random variable may take on. Such a value will be represented by the lower-case version of the letter used to denote the random variable. In other words, we can ask about the probability that the random variable <span class="math notranslate nohighlight">\(X\)</span> takes on a value <span class="math notranslate nohighlight">\(x\)</span>, which we can write as <span class="math notranslate nohighlight">\(\operatorname{P}(X=x)\)</span>. In particular, we can define functions this way; for instance, we can create a function of <span class="math notranslate nohighlight">\(x\)</span> that returns <span class="math notranslate nohighlight">\(\operatorname{Pr}(X=x)\)</span> for each real <span class="math notranslate nohighlight">\(x\)</span>, like <span class="math notranslate nohighlight">\(p_X(x) = \operatorname{Pr}(X=x)\)</span>.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Many people learning probability get confused by the notation of using an upper-case letter for a random variable and using a lower-case letter for the value of a random variable.</p>
+<p><strong>This confusion is especially bad when it comes to handwritten math because many people use very similar letter styles for both the upper-case and lower-case versions of their letters.</strong></p>
+<p>Here are my recommendations to reduce this confusion:</p>
+<ul class="simple">
+<li><p>Write your random variables in a <em>san serif</em> style. Serifs are decorative strokes at the ends of letters, so write your upper-case letters in a block style without serifs.</p></li>
+<li><p>Write the lower case versions with curvy <em>serifs</em>.</p></li>
+</ul>
+<p>Some examples are below:</p>
+<a class="reference internal image-reference" href="../_images/writing-letters.jpg"><img alt="Image of handwritten versions of X,Y,Z and x,y,z with upper-case letters drawn without serifs and lower-case letters drawn with curly serifs" src="../_images/writing-letters.jpg" style="width: 300px;" /></a>
+<p>I recommend crossing the stem of the upper-case <span class="math notranslate nohighlight">\(Z\)</span> to help distinguish it from the number two.</p>
 </div>
-<div class="section" id="jointly-distributed-random-variables-two-dimensions">
-<h2><span class="section-number">15.2. </span>Jointly Distributed Random Variables (Two-dimensions)<a class="headerlink" href="#jointly-distributed-random-variables-two-dimensions" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned above, we wish to be able to evaluate the probabilities that a random variable takes on certain sets of values. There are several immediate problems:</p>
+<ul class="simple">
+<li><p>How can we define a random variable so that we can evaluate the probability that it will take on a set of values in  a way that is consistent with our work on probability.</p></li>
+<li><p>As in the case of event classes and probability measures, it turns out that we cannot come up with a rule that will assign a meaningful probability to any arbitrary set of values that a random variable might take on. How can we choose reasonable sets of values to assign probability to, and how can we evaluate those probabilities?</p></li>
+</ul>
+<p>Our approach may seem a bit strange at first, but it defines random variables in a way that directly leverages our work on probability spaces. Suppose we have a probability space <span class="math notranslate nohighlight">\((S, \mathcal{F}, P)\)</span>, and we want to use the probability measure <span class="math notranslate nohighlight">\(P\)</span> from this probability space to determine the probabilities for a random variable <span class="math notranslate nohighlight">\(X\)</span>.  Then if <span class="math notranslate nohighlight">\(B\)</span> is a set of real values, we want to translate <span class="math notranslate nohighlight">\(\operatorname{Pr}(X \in B)\)</span> to some probability <span class="math notranslate nohighlight">\(P(E_B)\)</span>, where <span class="math notranslate nohighlight">\(E_B \in \mathcal{F}\)</span> is an event in our probability space. To achieve this, we must have that the outcomes (which do not have to be numbers) in <span class="math notranslate nohighlight">\(E_B\)</span> correspond in some way to the real values in <span class="math notranslate nohighlight">\(B\)</span>. Since we need to be able to determine what outcomes in <span class="math notranslate nohighlight">\(E_B\)</span> correspond to the set of reals <span class="math notranslate nohighlight">\(B\)</span>, then there must be a <strong>function</strong> that maps from the outcomes in <span class="math notranslate nohighlight">\(E_B\)</span> to the real values in <span class="math notranslate nohighlight">\(B\)</span>.  We define the random variable <span class="math notranslate nohighlight">\(X\)</span> as that function: it is a function that maps the outcomes in <span class="math notranslate nohighlight">\(S\)</span> to the real line.</p>
+<p>Formally, we do not write a random variable as <span class="math notranslate nohighlight">\(X\)</span> but instead write it as <span class="math notranslate nohighlight">\(X(s)\)</span> to indicate that it is a function of an outcome in the sample space. Note also that the function itself <strong>is not random</strong>. In other words, if we know that some particular value <span class="math notranslate nohighlight">\(s_1 \in S\)</span> occurred, then <span class="math notranslate nohighlight">\(X(s_1)\)</span> is a deterministic real number.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the discussion below, we get into some very fine details about random variables, and this discussion is more mathematically challenging than is usually included in a book at this level.  I have chosen to include this level of detail for two reasons:</p>
+<ol class="simple">
+<li><p>This careful approach establishes a solid foundation for further study of probability.</p></li>
+<li><p>This approach will motivate our use of a particular function in working with random variables.</p></li>
+</ol>
+<p><strong>Do not be concerned if you do no understand every detail of these arguments: in practice, we will use a very pragmatic approach for working with random variables that does not require us to worry about the following details.</strong></p>
 </div>
-<div class="section" id="jointly-distributed-gaussian-random-variables">
-<h2><span class="section-number">15.3. </span>Jointly Distributed Gaussian Random Variables<a class="headerlink" href="#jointly-distributed-gaussian-random-variables" title="Permalink to this headline">¶</a></h2>
+<p>Thinking back to our work on probability spaces, you should recall that we cannot define <span class="math notranslate nohighlight">\(P(A)\)</span> for all <span class="math notranslate nohighlight">\(A \subset S\)</span> if <span class="math notranslate nohighlight">\(S\)</span> is uncountably infinite. We can only define <span class="math notranslate nohighlight">\(P(A)\)</span> if <span class="math notranslate nohighlight">\(A \in \mathcal{F}\)</span>. Thus, we will need to introduce some additional restrictions on <span class="math notranslate nohighlight">\(X\)</span> to ensure that the sets of values <span class="math notranslate nohighlight">\(B\)</span> for which we define the probability <span class="math notranslate nohighlight">\(P(X \in B)\)</span> correspond to events <span class="math notranslate nohighlight">\(E_B \in \mathcal{F}\)</span>.  There is no way to create a random variable that ensures that this will be true for every set of real values <span class="math notranslate nohighlight">\(B\)</span>, so we must introduce a restriction on the sets <span class="math notranslate nohighlight">\(B_i \subset \mathbb{R}\)</span> for  which we will define <span class="math notranslate nohighlight">\(P(X \in B_i)\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(S_X\)</span> be a set of all of the subsets of <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> for which we will define <span class="math notranslate nohighlight">\(P(X \in B)\)</span> if <span class="math notranslate nohighlight">\(B \in S_X\)</span>.<br />
+We want to at least be able to ask questions like what is <span class="math notranslate nohighlight">\(\operatorname{Pr}(X=x)\)</span> and what is <span class="math notranslate nohighlight">\(\operatorname{Pr} \left\{X \in [a,b)\right\}\)</span>, and we can easily see that we would like to create unions of such sets: for instance, if <span class="math notranslate nohighlight">\(X\)</span> represents the value on the top-face of a six-sided die, we may want to determine the probability that the dies is even. If <span class="math notranslate nohighlight">\(A\)</span> represents the age of people who have been hospitalized for Covid, we may wish to assess the impact on people outside of the usual working age by  determining the probability that <span class="math notranslate nohighlight">\(A\)</span> is less than  18 or greater than or equal to 65.  Thus, we can use the following generalization of the intervals:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINITION</p>
 </div>
-<div class="section" id="linear-transformations-affects-on-covariance-and-correlation-matrices">
-<h2><span class="section-number">15.4. </span>Linear Transformations Affects on Covariance and Correlation Matrices<a class="headerlink" href="#linear-transformations-affects-on-covariance-and-correlation-matrices" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="eigendecomposition-of-a-linear-transformation">
-<h2><span class="section-number">15.5. </span>Eigendecomposition of a Linear Transformation<a class="headerlink" href="#eigendecomposition-of-a-linear-transformation" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="decorrelation-of-random-variables-and-applications">
-<h2><span class="section-number">15.6. </span>Decorrelation of Random Variables and Applications<a class="headerlink" href="#decorrelation-of-random-variables-and-applications" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="properties-of-eigenvectors-and-the-klt">
-<h2><span class="section-number">15.7. </span>Properties of Eigenvectors and the KLT<a class="headerlink" href="#properties-of-eigenvectors-and-the-klt" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="principal-components-analysis-pca">
-<h2><span class="section-number">15.8. </span>Principal Components Analysis (PCA)<a class="headerlink" href="#principal-components-analysis-pca" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="non-statistical-matrix-decomposition-and-approximation-singular-value-decomposition-svd">
-<h2><span class="section-number">15.9. </span>Non-statistical Matrix Decomposition and Approximation: Singular Value Decomposition (SVD)<a class="headerlink" href="#non-statistical-matrix-decomposition-and-approximation-singular-value-decomposition-svd" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="review">
-<h2><span class="section-number">15.10. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="summary">
-<h2><span class="section-number">15.11. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<div class="card-body docutils">
+<dl class="glossary simple">
+<dt id="term-Borel-sets-of-mathbb-R">Borel sets (of <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>)<a class="headerlink" href="#term-Borel-sets-of-mathbb-R" title="Permalink to this term">¶</a></dt><dd><p class="card-text">The collection of all countable unions, intersections, and complements of intervals.</p>
+</dd>
+</dl>
 </div>
 </div>
+</div>
+</div>
+</div>
+<span class="target" id="index-0"></span><p id="index-1">The collection of Borel sets is called the <em>Borel <span class="math notranslate nohighlight">\(\sigma\)</span>-algebra</em> or the <em>Borel field</em> (technically, including the operators <span class="math notranslate nohighlight">\(\cup\)</span> and <span class="math notranslate nohighlight">\(\cap\)</span>). For conciseness, we will use the terminology <em>Borel field</em> to refer to the collection of Borel sets of <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Borel field for <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> can be formed from the countable unions, intersections, and complements of the half-open intervals <span class="math notranslate nohighlight">\((-\infty, x)\)</span> for all <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span>.</p>
+</div>
+<p>To be able to define the probability <span class="math notranslate nohighlight">\(\operatorname{Pr}(X \in B)\)</span> for every Borel set <span class="math notranslate nohighlight">\(B\)</span>, we must require that if we collect the set of outcomes that result in <span class="math notranslate nohighlight">\(X \in B\)</span>, then that set must be an event. In mathematical notation, we require that <span class="math notranslate nohighlight">\(\left\{s \left \vert X(s) \in B \right. \right\} \in \mathcal{F}\)</span>.</p>
+<p>Putting all of this together, we have our formal definition for a random variable:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINITION</p>
+</div>
+<div class="card-body docutils">
+<dl class="glossary simple">
+<dt id="term-random-variable">random variable<a class="headerlink" href="#term-random-variable" title="Permalink to this term">¶</a></dt><dd><p class="card-text"><em>(Formal definition)</em> Let <span class="math notranslate nohighlight">\((S, \mathcal{F}, P)\)</span> be a probability space. Then a random variable is a <em>function</em> that maps from the sample space <span class="math notranslate nohighlight">\(S\)</span> to the real line <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, such that if <span class="math notranslate nohighlight">\(B\)</span> is in the Borel field for <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, then <span class="math notranslate nohighlight">\(\left\{s \left \vert X(s) \in B \right. \right\} \in \mathcal{F}\)</span>.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Note that <span class="math notranslate nohighlight">\(\left\{s \left \vert X(s) \in B \right. \right\}\)</span> defines the set of input values that produce a given output, so we can abbreviate this as <span class="math notranslate nohighlight">\(X^{-1}(B)\)</span>.</p>
+<p>Let’s investigate this with some simple examples. In each example, we show a graphical depiction of the sample space for an experiment with directed arrows that indicate the mapping from the sample space to values of the random variable, which are shown on a number line.</p>
+<p><strong>Example 1</strong></p>
+<p>Let’s create a binary RV from tossing a fair coin.</p>
+<!--The sample space is $S=\{H,T\}$, we can represent H with value 1 in the real line and T with value 0 in the real line. Then we can define the random variable $X$ that is going to represent the outcomes of the experiment "tossing a fair coin": 
+$$X(x) = \begin{cases}1, & x=H \\0, & x=T\end{cases}$$ --><p><strong>Example 2</strong></p>
+<ul class="simple">
+<li><p>Let’s create a binary RV from tossing a fair coin twice.</p></li>
+</ul>
+<!--The sample space is $S=\{HH,HT,TH,TT\}$.  We want the RV $Y$ to be binary so the only real value it can take are 0 or 1. Let's consider the case where we **map** the events $\{HH,HT,TH\}$ to 1 and the event $\{TT\}$ to 0. Then we can define the random variable $Y$ as: 
+$$Y(y) = \begin{cases}1, & y=\{HH,HT,TH\} \\0, & y=\{TT\}\end{cases}$$ --><p><strong>Example 3</strong></p>
+<ul class="simple">
+<li><p>Let’s create another RV from tossing a fair coin twice.</p></li>
+</ul>
+<!-- The sample space is $S=\{HH,HT,TH,TT\}$. Here we are not told $Z$ can only be binary, then we can **map** each possible event to a different real-value number. So, we can define the random variable $Z$ as: 
+$$Z(z) = \begin{cases}1, & z=\{HH\} \\2, & z=\{HT\}\\3, & z=\{TH\}\\4, & z=\{TT\}\end{cases}$$ --></div>
 
     <script type="text/x-thebe-config">
     {
@@ -745,7 +683,7 @@ const thebe_selector_output = ".output, .cell_output"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./15-multidim-dependence"
+            path: "./08-random-variables"
         },
         predefinedOutput: true
     }
@@ -757,17 +695,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../14-matrix-applications/outline.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">14. </span>Applications of Matrices to Solving Equations, Curve Fitting, and Regression (Outline)</p>
+            <p class="prev-next-title"><span class="section-number">8. </span>Random Variables (In Progress)</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../16-next-steps/outline.html" title="next page">
+    <a class='right-next' id="next-link" href="outline.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>Next Steps (Outline)</p>
+        <p class="prev-next-title"><span class="section-number">8.2. </span>Discrete Random Variables and Probability Mass Functions</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
