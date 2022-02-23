@@ -656,7 +656,37 @@ We want to at least be able to ask questions like what is <span class="math notr
 <p>Note that <span class="math notranslate nohighlight">\(\left\{s \left \vert X(s) \in B \right. \right\}\)</span> defines the set of input values that produce a given output, so we can abbreviate this as <span class="math notranslate nohighlight">\(X^{-1}(B)\)</span>.</p>
 <p>Let’s investigate this with some simple examples. In each example, we show a graphical depiction of the sample space for an experiment with directed arrows that indicate the mapping from the sample space to values of the random variable, which are shown on a number line.</p>
 <p><strong>Example 1</strong></p>
-<p>Let’s create a binary RV from tossing a fair coin.</p>
+<p>Let’s create a binary random variable that has equal probability of being 0 or 1. Such a random variable can be created using many different probability spaces, but lets pick a simple one that we are already familiar with. We will flip a fair coin. Then <span class="math notranslate nohighlight">\(S = \left\{H, T \right\}\)</span> and</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{F} =2^S = \bigl\{ \emptyset, \{H\}, \{T\}, \{H,T\} \bigr\}.
+\]</div>
+<p>The probability measure is given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+P(E) = 
+\begin{cases}
+0, &amp; E= \emptyset \\
+1/2, &amp; E=\{H\} \mbox{ or } E=\{T\} \\
+1, &amp; E = \{H, T \}
+\end{cases}
+\end{split}\]</div>
+<p>We can create our random variable as the function <span class="math notranslate nohighlight">\(X(s)\)</span> given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+X(s) = 
+\begin{cases}
+0, &amp; s = T \\
+1, &amp; s = H \\
+\end{cases}
+\end{split}\]</div>
+<p>The figure below shows this mapping:</p>
+<a class="reference internal image-reference" href="../_images/binary-rv1.pdf"><img alt="Image of handwritten versions of X,Y,Z and x,y,z with upper-case letters drawn without serifs and lower-case letters drawn with curly serifs" src="../_images/binary-rv1.pdf" style="width: 600px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note a random variable is defined on the sample space – it is a function whose argument is an <strong>outcome</strong>.</p>
+<p>Contrast this with the probability measure, which is defined on the event class – its argument is an <strong>event</strong>.</p>
+</div>
 <!--The sample space is $S=\{H,T\}$, we can represent H with value 1 in the real line and T with value 0 in the real line. Then we can define the random variable $X$ that is going to represent the outcomes of the experiment "tossing a fair coin": 
 $$X(x) = \begin{cases}1, & x=H \\0, & x=T\end{cases}$$ --><p><strong>Example 2</strong></p>
 <ul class="simple">
