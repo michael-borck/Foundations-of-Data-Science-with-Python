@@ -604,7 +604,7 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="discrete-random-variables">
 <h1><span class="section-number">8.2. </span>Discrete Random Variables<a class="headerlink" href="#discrete-random-variables" title="Permalink to this headline">¶</a></h1>
-<p>As mentioned in <span class="xref std std-doc">definition.ipynb</span>, we classify random variables based on their range. The reason we do this is that the mathematical tools we use to work such random variables vary depending  on their range. We will start with the easiest type to understand, which is the discrete random variable:</p>
+<p>As mentioned in <a class="reference internal" href="definition.html"><span class="doc">Definition of a Real Random Variable</span></a>, we classify random variables based on their range. The reason we do this is that the mathematical tools we use to work such random variables vary depending  on their range. We will start with the easiest type to understand, which is the discrete random variable:</p>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
 <div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
@@ -627,7 +627,7 @@ const thebe_selector_output = ".output, .cell_output"
 \[
 P(X \in A)  = \sum_{x \in A} P(X = x) \mbox{ if } A \subset \operatorname{Range}(X),
 \]</div>
-<p>where we have implicity taken advantage of the fact that the sets <span class="math notranslate nohighlight">\(\left\{ s \left \vert X(s) = x \right. \right\}\)</span> are disjoint sets, as discussed in <span class="xref std std-doc">definition.ipynb</span>.</p>
+<p>where we have implicity taken advantage of the fact that the sets <span class="math notranslate nohighlight">\(\left\{ s \left \vert X(s) = x \right. \right\}\)</span> are disjoint sets, as discussed in <a class="reference internal" href="definition.html"><span class="doc">Definition of a Real Random Variable</span></a>.</p>
 <p>For any Borel set, <span class="math notranslate nohighlight">\(B\)</span>, we can express <span class="math notranslate nohighlight">\(P(B)\)</span> as a finite sum over the values of <span class="math notranslate nohighlight">\(X\)</span> that are in <span class="math notranslate nohighlight">\(B\)</span> and in the range of <span class="math notranslate nohighlight">\(X\)</span>, since all other values of <span class="math notranslate nohighlight">\(X\)</span> have probability zero:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -679,7 +679,7 @@ P(X\in A) = \sum_{x\in A} p_X(x).
 </ul>
 <p>We illustrate this with some examples.</p>
 <p><strong>Example 1</strong></p>
-<p>Find the PMF for a binary RV <span class="math notranslate nohighlight">\(X(s)\)</span> from tossing a fair coin.  This was Example 1 in <span class="xref std std-doc">definition.ipynb</span>. Please refer to that example for the detailed mathematical formulation of the probability space and functional definition of the random variable. Here, I only reproduce the figure, which illustrates the sample space and the mapping of the outcomes to real values by <span class="math notranslate nohighlight">\(X(s)\)</span>:</p>
+<p>Find the PMF for a binary RV <span class="math notranslate nohighlight">\(X(s)\)</span> from tossing a fair coin.  This was Example 1 in <a class="reference internal" href="definition.html"><span class="doc">Definition of a Real Random Variable</span></a>. Please refer to that example for the detailed mathematical formulation of the probability space and functional definition of the random variable. Here, I only reproduce the figure, which illustrates the sample space and the mapping of the outcomes to real values by <span class="math notranslate nohighlight">\(X(s)\)</span>:</p>
 <a class="reference internal image-reference" href="../_images/binary-rv1.pdf"><img alt="Image of handwritten versions of X,Y,Z and x,y,z with upper-case letters drawn without serifs and lower-case letters drawn with curly serifs" src="../_images/binary-rv1.pdf" style="width: 600px;" /></a>
 <p>From this, we see that <span class="math notranslate nohighlight">\(\operatorname{Range}(X) = \{ 0, 1\}\)</span>. Hence, we calculate:</p>
 <ul class="simple">
@@ -697,7 +697,7 @@ p_X(x) =
 \end{split}\]</div>
 <p><strong>Note that we often abbreviate “otherwise” in such formula as “o.w.”.</strong></p>
 <!-- $$p_X(x) = P(X=x) = \begin{cases}\frac{1}{2}, & x=1 \\ \frac{1}{2}, & x=0 \end{cases}$$ --><p><strong>Example 2</strong></p>
-<p>Find the PMF of the binary RV <span class="math notranslate nohighlight">\(Y\)</span> from Example 2 of <span class="xref std std-doc">definition.ipynb</span> and for which the sample space and functional mapping are illustrated below:</p>
+<p>Find the PMF of the binary RV <span class="math notranslate nohighlight">\(Y\)</span> from Example 2 of <a class="reference internal" href="definition.html"><span class="doc">Definition of a Real Random Variable</span></a> and for which the sample space and functional mapping are illustrated below:</p>
 <a class="reference internal image-reference" href="../_images/binary-rv2.pdf"><img alt="" src="../_images/binary-rv2.pdf" style="width: 600px;" /></a>
 <p>The range of <span class="math notranslate nohighlight">\(Y\)</span> is the same as the range of <span class="math notranslate nohighlight">\(X\)</span> in Example 1, <span class="math notranslate nohighlight">\(\operatorname{Range}(Y) = \{0, 1\}\)</span>.  However, the sample space and mapping from outcomes to values of the random variable is different than in Example 1. From the figure, we see that</p>
 <ul class="simple">
@@ -715,7 +715,7 @@ p_Y(y) =
 \end{cases}.
 \end{split}\]</div>
 <p><strong>Example 3</strong></p>
-<p>Now consider the random variable <span class="math notranslate nohighlight">\(Z\)</span> from Example 3 in <span class="xref std std-doc">definition.ipynb</span>. This random variable is created using the same probability space as the random variable in Example 2, but has a different range, <span class="math notranslate nohighlight">\(\operatorname{Range}(Z) = \{ 0,1,2\}\)</span>. From the figure, we see that</p>
+<p>Now consider the random variable <span class="math notranslate nohighlight">\(Z\)</span> from Example 3 in <a class="reference internal" href="definition.html"><span class="doc">Definition of a Real Random Variable</span></a>. This random variable is created using the same probability space as the random variable in Example 2, but has a different range, <span class="math notranslate nohighlight">\(\operatorname{Range}(Z) = \{ 0,1,2\}\)</span>. From the figure, we see that</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(p_Z(0) = P\left[ Z(s) = 0 \right] = P (\{TT\}) = 1/4\)</span>, and</p></li>
 <li><p><span class="math notranslate nohighlight">\(p_Z(1) = P\left[ Z(s) = 1 \right] = P (\{HT, TH\}) = 1/2\)</span>, and</p></li>
@@ -762,8 +762,8 @@ P(TTH) &amp;= \left( \frac 1 2 \right) \left( \frac 1 2 \right) \left( \frac 1 2
 P(T^{n-1}H) = \frac{1}{2^{n}}.
 \]</div>
 <p>Let <span class="math notranslate nohighlight">\(N\)</span> be a random variable that is equal to the number of flips until the first H occurs. Then if <span class="math notranslate nohighlight">\(n \in \{1,2,3,\ldots \}\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d98348b5-a4fe-4a72-9f64-d72edae2b688">
-<span class="eqno">(8.2)<a class="headerlink" href="#equation-d98348b5-a4fe-4a72-9f64-d72edae2b688" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-75d839b9-3119-407f-8337-2e1368ba2ac1">
+<span class="eqno">(8.2)<a class="headerlink" href="#equation-75d839b9-3119-407f-8337-2e1368ba2ac1" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left[N(s) =n \right] &amp;= P\left[ T^{n-1}H \right] \\
 &amp;= \left( \frac {1}{2} \right)^n.
 \end{align}\]</div>
@@ -784,7 +784,7 @@ p_N(n) =
 </ul>
 <p>However, we will find that the probability mass function is not the best or most appropriate tool in all cases:</p>
 <ul class="simple">
-<li><p>It is not as convenient if we are interested in large intervals, such as if we want to evaluate <span class="math notranslate nohighlight">\(P(3 &lt; N  \le 100\)</span>. A computer can evaluate this range easily, but it is not easy to calculate by hand (even with a calculator).</p></li>
+<li><p>It is not as convenient if we are interested in large intervals, such as if we want to evaluate <span class="math notranslate nohighlight">\(P(3 &lt; N  \le 100)\)</span>. A computer can evaluate this range easily, but it is not easy to calculate by hand (even with a calculator).</p></li>
 <li><p>We will soon see that the pmf does not generalize to random variables for which the range is an uncountable set of values.</p></li>
 </ul>
 <p>Thus, we are motivated to explore other functions  that can address these last concerns. In the next section, we introduce the <em>cumulative distribution function (CDF)</em>, which instead of computing <span class="math notranslate nohighlight">\(P(X=x)\)</span> computes the probabilities of the form <span class="math notranslate nohighlight">\(P(X \le x)\)</span>. We will show that the CDF resolves the problems we identified with the PMF.</p>
