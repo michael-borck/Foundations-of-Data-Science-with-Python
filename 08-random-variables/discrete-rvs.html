@@ -696,6 +696,51 @@ p_X(x) =
 \end{cases}.
 \end{split}\]</div>
 <p><strong>Note that we often abbreviate “otherwise” in such formula as “o.w.”.</strong></p>
+<p>Because PMFs generally only have values at a small subset of the reals, we use a special type of plot in which the nonzero values are drawn as sticks with balls at the values. Because of the shape of these plots, these are often called <em>lollipop plots</em>; however, these are called <em>stem plots</em> in Matplotlib. (Note that stem and leaf plots are something different). Lets plot the PMF for this random variable. As usual, we begin by importing <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> and setting the plot  backend to render the plots inline in the notebook:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span>  <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we put the values of x in a list or vector, and the pmf values in another list or vector and call <code class="docutils literal notranslate"><span class="pre">plt.stem()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;StemContainer object of 3 artists&gt;
+</pre></div>
+</div>
+<img alt="../_images/discrete-rvs_7_1.png" src="../_images/discrete-rvs_7_1.png" />
+</div>
+</div>
+<p>It is hard to interpret a PMF when the range of the <span class="math notranslate nohighlight">\(x\)</span>-axis is so close to the range of the random variable. However, <code class="docutils literal notranslate"><span class="pre">plt.stem()</span></code> won’t show zero probability outside of the specified range. So, we can add some additional values of <span class="math notranslate nohighlight">\(x\)</span> at -1 and 2 and set the PMF to 0 for those values.</p>
+<p>Similarly, increasing the limits on the <span class="math notranslate nohighlight">\(y\)</span>-axis make this easier to interpret. Finally, we need to add some axis labels:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">PMF_x</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">PMF_x</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability mass function $p_X(x)$&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/discrete-rvs_9_0.png" src="../_images/discrete-rvs_9_0.png" />
+</div>
+</div>
 <!-- $$p_X(x) = P(X=x) = \begin{cases}\frac{1}{2}, & x=1 \\ \frac{1}{2}, & x=0 \end{cases}$$ --><p><strong>Example 2</strong></p>
 <p>Find the PMF of the binary RV <span class="math notranslate nohighlight">\(Y\)</span> from Example 2 of <a class="reference internal" href="definition.html"><span class="doc">Definition of a Real Random Variable</span></a> and for which the sample space and functional mapping are illustrated below:</p>
 <a class="reference internal image-reference" href="../_images/binary-rv2.pdf"><img alt="" src="../_images/binary-rv2.pdf" style="width: 600px;" /></a>
@@ -714,6 +759,25 @@ p_Y(y) =
 0, &amp; \mbox{o.w.}
 \end{cases}.
 \end{split}\]</div>
+<p>Here is a plot using the same approach as we did for Example 1:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">PMF_y</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">PMF_y</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$y$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability mass function $p_Y(y)$&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/discrete-rvs_13_0.png" src="../_images/discrete-rvs_13_0.png" />
+</div>
+</div>
 <p><strong>Example 3</strong></p>
 <p>Now consider the random variable <span class="math notranslate nohighlight">\(Z\)</span> from Example 3 in <a class="reference internal" href="definition.html"><span class="doc">Definition of a Real Random Variable</span></a>. This random variable is created using the same probability space as the random variable in Example 2, but has a different range, <span class="math notranslate nohighlight">\(\operatorname{Range}(Z) = \{ 0,1,2\}\)</span>. From the figure, we see that</p>
 <ul class="simple">
@@ -730,10 +794,29 @@ p_Z(z) =
 0, &amp; \mbox{o.w.}
 \end{cases}.
 \)</span>$</p>
+<p>And here is the plot of the PMF of <span class="math notranslate nohighlight">\(Z\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">PMF_z</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">PMF_z</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$z$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability mass function $p_Z(z)$&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/discrete-rvs_16_0.png" src="../_images/discrete-rvs_16_0.png" />
+</div>
+</div>
 <p><strong>Example 4</strong></p>
 <p>In this example, we show how a random variable can be formed directly from the outcomes of a random experiment. In other words, for an experiment with a numerical outcome, we can let <span class="math notranslate nohighlight">\(X(s)=s\)</span>.</p>
 <p>Create a probability space by rolling a fair 6-sided die and observing the top face. Let the event class be the power set of the sample space. Let the RV <span class="math notranslate nohighlight">\(W\)</span> be defined by <span class="math notranslate nohighlight">\(W(s)\)</span> for all <span class="math notranslate nohighlight">\(s \in S\)</span>.</p>
-<p>Then <span class="math notranslate nohighlight">\(p_W(w) = P\left[ W(s) =w \right] = P( \{w\} )\)</span> for <span class="math notranslate nohighlight">\(w \in \{1,2,3,4,5,6\}\)</span>. Since this is a fair experiment, $P({w}) = 1/6.</p>
+<p>Then <span class="math notranslate nohighlight">\(p_W(w) = P\left[ W(s) =w \right] = P( \{w\} )\)</span> for <span class="math notranslate nohighlight">\(w \in \{1,2,3,4,5,6\}\)</span>. Since this is a fair experiment, <span class="math notranslate nohighlight">\(P(\{w\}) = 1/6\)</span>.</p>
 <p>The PMF for <span class="math notranslate nohighlight">\(W\)</span> is
 $<span class="math notranslate nohighlight">\(
 p_W(w)  =
@@ -742,6 +825,25 @@ p_W(w)  =
 0, &amp; \text{o.w.}
 \end{cases}
 \)</span>$</p>
+<p>Here is the plot of the PMF of W:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span><span class="nb">list</span><span class="p">(</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">PMF_w</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">]</span><span class="o">*</span><span class="mi">6</span> <span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">PMF_w</span><span class="p">,</span> <span class="n">use_line_collection</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability mass function $p_W(w)$&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/discrete-rvs_19_0.png" src="../_images/discrete-rvs_19_0.png" />
+</div>
+</div>
 <p><strong>Example 5</strong></p>
 <p>Recall that discrete random variables can either have a finite range or a countably infinite range. Let’s create an example of the latter.</p>
 <p>Flip a coin until heads occurs. Record the set of outcomes. Then the sample space is</p>
@@ -762,8 +864,8 @@ P(TTH) &amp;= \left( \frac 1 2 \right) \left( \frac 1 2 \right) \left( \frac 1 2
 P(T^{n-1}H) = \frac{1}{2^{n}}.
 \]</div>
 <p>Let <span class="math notranslate nohighlight">\(N\)</span> be a random variable that is equal to the number of flips until the first H occurs. Then if <span class="math notranslate nohighlight">\(n \in \{1,2,3,\ldots \}\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8f53f3b6-92b4-4a68-a857-d4d524af96c8">
-<span class="eqno">(8.2)<a class="headerlink" href="#equation-8f53f3b6-92b4-4a68-a857-d4d524af96c8" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b57a9219-4f61-45e0-9943-a2b46f033e20">
+<span class="eqno">(8.2)<a class="headerlink" href="#equation-b57a9219-4f61-45e0-9943-a2b46f033e20" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left[N(s) =n \right] &amp;= P\left[ T^{n-1}H \right] \\
 &amp;= \left( \frac {1}{2} \right)^n.
 \end{align}\]</div>
@@ -776,6 +878,28 @@ p_N(n) =
 0, &amp; \mbox{o.w.}
 \end{cases}
 \end{split}\]</div>
+<p>Because the PMF has infinite range, we can only generate the values for it and plot it over a finite subset of its range. Because the values of the PMF get small quickly, we will plot up to <span class="math notranslate nohighlight">\(n=8\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">n</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+
+<span class="n">PMF_n</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="n">n</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">PMF_n</span><span class="p">,</span> <span class="n">use_line_collection</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$n$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability mass function $p_N(n)$&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Probability mass function $p_N(n)$&#39;)
+</pre></div>
+</div>
+<img alt="../_images/discrete-rvs_22_1.png" src="../_images/discrete-rvs_22_1.png" />
+</div>
+</div>
 <p>The probability mass function is nice because</p>
 <ul class="simple">
 <li><p>Its outputs are probabilities of the values that the random variable takes on.</p></li>
