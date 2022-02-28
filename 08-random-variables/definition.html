@@ -724,6 +724,53 @@ X(s) =
 <p>A random variable is defined on the sample space – it is a function whose argument is an <strong>outcome</strong>.  In this case, the argument of the function is either <span class="math notranslate nohighlight">\(H\)</span> or <span class="math notranslate nohighlight">\(T\)</span>.</p>
 <p>Contrast this with the probability measure, which is defined on the event class – its argument is an <strong>event</strong>. The probability measure can take as argument any of <span class="math notranslate nohighlight">\(\emptyset, \{H\}, \{T\}, or \{H,T\}\)</span>.</p>
 </div>
+<p>Let’s implement our random variable as a function in Python. The function takes an argument which is one of the outcomes <span class="math notranslate nohighlight">\(H\)</span> or <span class="math notranslate nohighlight">\(T\)</span> and performs the mapping shown above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">X</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">s</span> <span class="o">==</span> <span class="s1">&#39;H&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;The Random Variable X only takes inputs H or T&quot;</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we will generate an outcome to simulate flipping a fair coin using <code class="docutils literal notranslate"><span class="pre">random.choice()</span></code> as we have before. Start by importing the random library and setting up the sample space:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">sample_space</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s draw 10 different random outcomes <span class="math notranslate nohighlight">\(s\)</span> from the sample space and output the corresponding value of the random variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">sample_space</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">X</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 T 0
+1 H 1
+2 H 1
+3 H 1
+4 H 1
+5 H 1
+6 T 0
+7 H 1
+8 T 0
+9 H 1
+</pre></div>
+</div>
+</div>
+</div>
 <p>Now we demonstrate how we can use the definition of the random variable and the underlying probability measure to evaluate probabilities for the random variable.</p>
 <p>We start with the simplest case. We wish to find <span class="math notranslate nohighlight">\(P[X(s)=0]\)</span>, which is illustrated on the number line portion of the diagram below by a green X:</p>
 <a class="reference internal image-reference" href="../_images/binary-rv1-region1.pdf"><img alt="" src="../_images/binary-rv1-region1.pdf" style="width: 500px;" /></a>
@@ -734,6 +781,28 @@ P \left[ X(s) = 0 \right] &amp;= P\left[ X^{-1}(0) \right] \\
 &amp;= P\bigl[ \left\{T \right\} \bigr] \\
 &amp;= \frac{1}{2}
 \end{align*}\]</div>
+<p>We can use our Python random variable to estimate this probability by generating a large number of values of the random variable and finding the relative frequency of the value 0:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span> <span class="o">=</span> <span class="mi">10_000</span>
+
+<span class="n">counter</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">sample_space</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">counter</span><span class="o">+=</span><span class="mi">1</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Pr( X = 0 ) is approximately </span><span class="si">{</span><span class="n">counter</span><span class="o">/</span><span class="n">num_sims</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pr( X = 0 ) is approximately 0.5054
+</pre></div>
+</div>
+</div>
+</div>
 <p>Now lets consider <span class="math notranslate nohighlight">\(P(X \le -0.5)\)</span>, which is shown by the green line below. The square brace at the point 0.5 indicates that the point 0.5 is included in the region, and the arrow indicates that the region continues to <span class="math notranslate nohighlight">\(-\infty\)</span>. We could write an equivalent form for this probability as <span class="math notranslate nohighlight">\(P( X \in (-\infty, -0.5]\)</span>.</p>
 <a class="reference internal image-reference" href="../_images/binary-rv1-region2.pdf"><img alt="" src="../_images/binary-rv1-region2.pdf" style="width: 500px;" /></a>
 <p>This region introduces an important concept: <strong>we are not constrained to ask only about the probability of points in the range of <span class="math notranslate nohighlight">\(X(s)\)</span>. We can ask about the probability of any Borel set of <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>.</strong></p>
@@ -741,6 +810,34 @@ P \left[ X(s) = 0 \right] &amp;= P\left[ X^{-1}(0) \right] \\
 <p>Next consider <span class="math notranslate nohighlight">\(P(0 &lt; X \le 1)\)</span>, which is shown below. The parenthesis at the point 0 indicates that it is not a part of this region. We may also write this probability as <span class="math notranslate nohighlight">\(P\left[ X \in (0, 1] \right]\)</span>.</p>
 <a class="reference internal image-reference" href="../_images/binary-rv1-region3.pdf"><img alt="" src="../_images/binary-rv1-region3.pdf" style="width: 500px;" /></a>
 <p>As illustrated in the figure by the green line and the green shading on the point <span class="math notranslate nohighlight">\(H\)</span> in <span class="math notranslate nohighlight">\(S\)</span>, there is again only one <span class="math notranslate nohighlight">\(s \in S\)</span> that gives a value of <span class="math notranslate nohighlight">\(0 &lt; X \le 1\)</span>. So, in this case, <span class="math notranslate nohighlight">\(P\left[ 0 &lt; X \le 1 \right] = P\left[ \left\{H \right\} \right] =1/2\)</span>.</p>
+<p>To simulate this probability, we will need to rewrite the condition <span class="math notranslate nohighlight">\(0 &lt; X \le 1\)</span> into a form that more directly translates to Python. Note that this form is really a shorthand for two conditions:</p>
+<ul class="simple">
+<li><p>the left-hand side of the inequality is <span class="math notranslate nohighlight">\(0&lt; X\)</span>, but we more commonly flip that relation to write <span class="math notranslate nohighlight">\(X&gt;0\)</span> when writing a single inequality, and</p></li>
+<li><p>the right-hand side of the inequality is <span class="math notranslate nohighlight">\( X \le 1\)</span>.
+We are asking about the probability for values of <span class="math notranslate nohighlight">\(X\)</span> that satisify both of these inequalities, so we may also write <span class="math notranslate nohighlight">\( X&gt; 0 \cap X \le 1\)</span></p></li>
+</ul>
+<p>A simulation to estimate the probability of <span class="math notranslate nohighlight">\(X\)</span> satisfying these condition is shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span> <span class="o">=</span> <span class="mi">10_000</span>
+
+<span class="n">counter</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">sample_space</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">counter</span><span class="o">+=</span><span class="mi">1</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Pr( 0 &lt; X &lt;= 1 ) is approximately </span><span class="si">{</span><span class="n">counter</span><span class="o">/</span><span class="n">num_sims</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pr( 0 &lt; X &lt;= 1 ) is approximately 0.5028
+</pre></div>
+</div>
+</div>
+</div>
 <p>We consider one final probability for this random variable, <span class="math notranslate nohighlight">\(P( x &lt; 1.5)\)</span>, which is illustrated in the figure below.</p>
 <a class="reference internal image-reference" href="../_images/binary-rv1-region4.pdf"><img alt="" src="../_images/binary-rv1-region4.pdf" style="width: 500px;" /></a>
 <p>In this case, there are two different values of <span class="math notranslate nohighlight">\(s \in S\)</span> such that <span class="math notranslate nohighlight">\(X(s) &lt; 1.5\)</span>. In particular, <span class="math notranslate nohighlight">\(X(T) =0 &lt; 1.5\)</span> and <span class="math notranslate nohighlight">\(X(H)=1 &lt; 1.5\)</span>. If we let <span class="math notranslate nohighlight">\(B=(-\infty, 1.5)\)</span>, then <span class="math notranslate nohighlight">\(X^{-1} (B) = \left\{H, T \right\}\)</span>, and <span class="math notranslate nohighlight">\(P(X &lt; 1.5) = P\left[ X \in B \right] = \left[ X^{-1}(B) \right] = P\left[ \left\{H, T \right\} \right] =1\)</span>.</p>
@@ -757,6 +854,44 @@ Y(s)  =
 <p>Pictorially, this relation is shown below, where all of the points within the blue region of <span class="math notranslate nohighlight">\(S\)</span> are mapped to 1.</p>
 <a class="reference internal image-reference" href="../_images/binary-rv2.pdf"><img alt="" src="../_images/binary-rv2.pdf" style="width: 600px;" /></a>
 <p>From the figure and mathematical definition of <span class="math notranslate nohighlight">\(Y(s)\)</span>, we can see that <span class="math notranslate nohighlight">\(Y^{-1}(0) = \left\{TT \right\}\)</span> and <span class="math notranslate nohighlight">\(Y^{-1}(1) = \left\{HH, HT, TH \right\}\)</span>. This is our first example where we see that multiple <span class="math notranslate nohighlight">\(s\)</span> can map to the same value of a random variable. Thus even if we ask an equation like <span class="math notranslate nohighlight">\(P\left[Y(s)=y \right]\)</span>, the underlying event may contain multiple outcomes, as in this case. Given that the coin is fair, it is easy to see that the probability of each outcome is 1/4, so <span class="math notranslate nohighlight">\(P\left[ Y(s) = 0 \right] = 1/4\)</span> and <span class="math notranslate nohighlight">\(P \left[ Y(s) =1 \right] = 3/4\)</span>. This is our first example of a random variable with unequal probabilities, and it was built from a fair experiment, in which each outcome has an equal probability of occurring.</p>
+<p>Now, let’s implement <span class="math notranslate nohighlight">\(Y\)</span> as a function in Python. We will draw two values of the coin using <code class="docutils literal notranslate"><span class="pre">random.choices()</span></code>, which will return a list, so we will build the function <code class="docutils literal notranslate"><span class="pre">Y()</span></code> accordingly:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Y</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span> <span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">]</span> <span class="p">]:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Must input a list of two elements, each of which may be either &quot;H&quot; or &quot;T&quot;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s estimate the probability that <span class="math notranslate nohighlight">\(Y=1\)</span> via simulation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span> <span class="o">=</span> <span class="mi">10_000</span>
+
+<span class="n">sample_space</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">]</span>
+<span class="n">counter</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">Y</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">counter</span><span class="o">+=</span><span class="mi">1</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(Y=1) is approximately </span><span class="si">{</span><span class="n">counter</span><span class="o">/</span><span class="n">num_sims</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P(Y=1) is approximately 0.7562
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>Example 3</strong></p>
 <p>Let’s create another RV <span class="math notranslate nohighlight">\(Z\)</span> using the same probability space as the last experiment; i.e., define <span class="math notranslate nohighlight">\(Z(s)\)</span> using the same outcome. Let <span class="math notranslate nohighlight">\(Z\)</span> be the number of heads that occurred. Then the mathematical definition of <span class="math notranslate nohighlight">\(Z(s)\)</span> is given by</p>
 <div class="math notranslate nohighlight">
@@ -771,14 +906,64 @@ Z(s) =
 <p>We can depict this relationship graphically below:</p>
 <a class="reference internal image-reference" href="../_images/example-rv3.pdf"><img alt="" src="../_images/example-rv3.pdf" style="width: 700px;" /></a>
 <p>Note that even though <span class="math notranslate nohighlight">\(Z\)</span> is created from the same probability space, it takes on a different set of values and is not even a binary random variable. The point probabilities <span class="math notranslate nohighlight">\(P(Z=z)\)</span> are easy to find:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-40d52cb6-1f3e-465d-9500-82833cc5c6ca">
-<span class="eqno">(8.1)<a class="headerlink" href="#equation-40d52cb6-1f3e-465d-9500-82833cc5c6ca" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c3f23a29-849a-43aa-b321-87c5f8021b3e">
+<span class="eqno">(8.1)<a class="headerlink" href="#equation-c3f23a29-849a-43aa-b321-87c5f8021b3e" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(Z = 0) &amp;= P( \{TT\} ) = 1/4 \\
 P(Z = 1) &amp;= P( \{TH, HT\} ) = 1/2 \\
 P(Z = 2) &amp; = P( \{HH\} ) = 1/4 \\
 P(Z =z) &amp;  = 0 \mbox{ if }  z \notin \{0,1,2 \}.
 \end{align}\]</div>
 <p>Consider an example of what can happen when <span class="math notranslate nohighlight">\(Y(s)\)</span> and <span class="math notranslate nohighlight">\(Z(s)\)</span> are created from the same outcome. If you are given no information about <span class="math notranslate nohighlight">\(Y\)</span>, then we can see from above that <span class="math notranslate nohighlight">\(P(Z=0) = 1/4\)</span>.  Now suppose I told you that <span class="math notranslate nohighlight">\(Y=0\)</span>. From above, we see that <span class="math notranslate nohighlight">\(Y^{-1}(0) = TT \)</span> and <span class="math notranslate nohighlight">\(Z(TT) = 0\)</span>. So we know that <span class="math notranslate nohighlight">\(Z=0\)</span> with probability 1. Thus <span class="math notranslate nohighlight">\(Y\)</span> and <span class="math notranslate nohighlight">\(Z\)</span> are dependent random variables – we haven’t defined exactly what this means yet mathematically, but we can see that they are dependent by this example.</p>
+<p>To illustrate this concept, we implement the random variable <span class="math notranslate nohighlight">\(Z\)</span> as a function and conduct a simulation to estimate <span class="math notranslate nohighlight">\(P(Z=0)\)</span> and <span class="math notranslate nohighlight">\(P(Z=0|Y=0)\)</span>, which corresponds to the description above that “I told you <span class="math notranslate nohighlight">\(Y=0\)</span>”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Z</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span> <span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">]]:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">s</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Must input a list of two elements, each of which may be either &quot;H&quot; or &quot;T&quot;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span><span class="o">=</span><span class="mi">100_000</span>
+
+<span class="n">count_z0</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">count_y0</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">count_z0_y0</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">sample_space</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">Y</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">Z</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">z</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">count_z0</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">count_y0</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">z</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">count_z0_y0</span> <span class="o">+=</span> <span class="mi">1</span>
+            
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(Z=0) is approximately </span><span class="si">{</span><span class="n">count_z0</span><span class="o">/</span><span class="n">num_sims</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(Z=0|Y=0) is approximately </span><span class="si">{</span><span class="n">count_z0_y0</span><span class="o">/</span><span class="n">count_y0</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+      
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P(Z=0) is approximately 0.2512
+P(Z=0|Y=0) is approximately 1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>As expected, these values closely match the results of our analysis.</p>
 <p><strong>JMS: Add JupyterQuiz questions about probabilities on ranges of this random variable to help students check understanding of this material.</strong></p>
 <p>All of these examples use discrete sample spaces, and the ranges of the random variables are all discrete, finite sets. These are called <em>discrete random variables</em>.The true power of working with random variables will be for the cases where these sets are uncountably infinite. However, before we get to those cases, the next section introduces some tools for working with discrete random variables and some common types of discrete random variables.</p>
 </div>
