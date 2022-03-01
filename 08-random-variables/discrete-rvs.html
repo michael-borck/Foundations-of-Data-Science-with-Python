@@ -696,6 +696,31 @@ p_X(x) =
 \end{cases}.
 \end{split}\]</div>
 <p><strong>Note that we often abbreviate “otherwise” in such formula as “o.w.”.</strong></p>
+<p>When we have a very simple PMF like this, we could implement in Python it for a single value of <span class="math notranslate nohighlight">\(x\)</span>  using if statements:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p_X1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, it is more useful to be able to return probabilities for a whole list or array of input values. We can use  NumPy’s <code class="docutils literal notranslate"><span class="pre">piecewise()</span></code> function to provide the appropriate values by conducting these tests on a vector of values (although a single value will also still work). The call signature for <code class="docutils literal notranslate"><span class="pre">np.piecewise</span></code> is</p>
+<p><code class="docutils literal notranslate"><span class="pre">Signature:</span> <span class="pre">np.piecewise(x,</span> <span class="pre">condlist,</span> <span class="pre">funclist,</span> <span class="pre">*args,</span> <span class="pre">**kw)</span></code></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">condlist</span></code> is a list of conditions, and the <code class="docutils literal notranslate"><span class="pre">funclist</span></code> is a <strong>corresponding</strong> list of functions. If condition <span class="math notranslate nohighlight">\(i\)</span> from <code class="docutils literal notranslate"><span class="pre">condlist</span></code> evaluates as true for an input value, then function <span class="math notranslate nohighlight">\(i\)</span> from <code class="docutils literal notranslate"><span class="pre">funclist</span></code> will be used to compute the output vaule. Here is how we can use it in action:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p_X</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">piecewise</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="o">==</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here the line <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x.astype(float)</span></code> is required to ensure that we can return an array of float values, even if the input contains all integers</p>
 <p>Because PMFs generally only have values at a small subset of the reals, we use a special type of plot in which the nonzero values are drawn as sticks with balls at the values. Because of the shape of these plots, these are often called <em>lollipop plots</em>; however, these are called <em>stem plots</em> in Matplotlib. (Note that stem and leaf plots are something different). Lets plot the PMF for this random variable. As usual, we begin by importing <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> and setting the plot  backend to render the plots inline in the notebook:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -709,7 +734,7 @@ p_X(x) =
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="n">y</span><span class="o">=</span><span class="n">p_X</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -718,7 +743,7 @@ p_X(x) =
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;StemContainer object of 3 artists&gt;
 </pre></div>
 </div>
-<img alt="../_images/discrete-rvs_7_1.png" src="../_images/discrete-rvs_7_1.png" />
+<img alt="../_images/discrete-rvs_12_1.png" src="../_images/discrete-rvs_12_1.png" />
 </div>
 </div>
 <p>It is hard to interpret a PMF when the range of the <span class="math notranslate nohighlight">\(x\)</span>-axis is so close to the range of the random variable. However, <code class="docutils literal notranslate"><span class="pre">plt.stem()</span></code> won’t show zero probability outside of the specified range. So, we can add some additional values of <span class="math notranslate nohighlight">\(x\)</span> at -1 and 2 and set the PMF to 0 for those values.</p>
@@ -738,10 +763,10 @@ p_X(x) =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/discrete-rvs_9_0.png" src="../_images/discrete-rvs_9_0.png" />
+<img alt="../_images/discrete-rvs_14_0.png" src="../_images/discrete-rvs_14_0.png" />
 </div>
 </div>
-<!-- $$p_X(x) = P(X=x) = \begin{cases}\frac{1}{2}, & x=1 \\ \frac{1}{2}, & x=0 \end{cases}$$ --><p><strong>Example 2</strong></p>
+<p><strong>Example 2</strong></p>
 <p>Find the PMF of the binary RV <span class="math notranslate nohighlight">\(Y\)</span> from Example 2 of <a class="reference internal" href="definition.html"><span class="doc">Definition of a Real Random Variable</span></a> and for which the sample space and functional mapping are illustrated below:</p>
 <a class="reference internal image-reference" href="../_images/binary-rv2.pdf"><img alt="" src="../_images/binary-rv2.pdf" style="width: 600px;" /></a>
 <p>The range of <span class="math notranslate nohighlight">\(Y\)</span> is the same as the range of <span class="math notranslate nohighlight">\(X\)</span> in Example 1, <span class="math notranslate nohighlight">\(\operatorname{Range}(Y) = \{0, 1\}\)</span>.  However, the sample space and mapping from outcomes to values of the random variable is different than in Example 1. From the figure, we see that</p>
@@ -759,12 +784,21 @@ p_Y(y) =
 0, &amp; \mbox{o.w.}
 \end{cases}.
 \end{split}\]</div>
+<p>Here is an implementation in Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p_Y</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">piecewise</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Here is a plot using the same approach as we did for Example 1:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">PMF_y</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">PMF_y</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">p_Y</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -775,7 +809,7 @@ p_Y(y) =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/discrete-rvs_13_0.png" src="../_images/discrete-rvs_13_0.png" />
+<img alt="../_images/discrete-rvs_19_0.png" src="../_images/discrete-rvs_19_0.png" />
 </div>
 </div>
 <p><strong>Example 3</strong></p>
@@ -794,12 +828,21 @@ p_Z(z) =
 0, &amp; \mbox{o.w.}
 \end{cases}.
 \)</span>$</p>
+<p>A Python implemetation is</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p_Z</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">piecewise</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="p">[</span><span class="n">z</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">z</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="n">z</span> <span class="o">==</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>And here is the plot of the PMF of <span class="math notranslate nohighlight">\(Z\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">PMF_z</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">PMF_z</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">p_Z</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -810,7 +853,7 @@ p_Z(z) =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/discrete-rvs_16_0.png" src="../_images/discrete-rvs_16_0.png" />
+<img alt="../_images/discrete-rvs_24_0.png" src="../_images/discrete-rvs_24_0.png" />
 </div>
 </div>
 <p><strong>Example 4</strong></p>
@@ -825,12 +868,22 @@ p_W(w)  =
 0, &amp; \text{o.w.}
 \end{cases}
 \)</span>$</p>
+<p>A Python implementation is shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p_W</span><span class="p">(</span><span class="n">w</span><span class="p">):</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">piecewise</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])],</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here I used the <code class="docutils literal notranslate"><span class="pre">np.isin()</span></code> function to check each value of the <span class="math notranslate nohighlight">\(w\)</span> array to see if it is in the range of <span class="math notranslate nohighlight">\(W\)</span>.</p>
 <p>Here is the plot of the PMF of W:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span><span class="nb">list</span><span class="p">(</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
-<span class="n">PMF_w</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">]</span><span class="o">*</span><span class="mi">6</span> <span class="o">+</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">PMF_w</span><span class="p">,</span> <span class="n">use_line_collection</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">p_W</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="n">use_line_collection</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span>
@@ -841,7 +894,7 @@ p_W(w)  =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/discrete-rvs_19_0.png" src="../_images/discrete-rvs_19_0.png" />
+<img alt="../_images/discrete-rvs_30_0.png" src="../_images/discrete-rvs_30_0.png" />
 </div>
 </div>
 <p><strong>Example 5</strong></p>
@@ -864,8 +917,8 @@ P(TTH) &amp;= \left( \frac 1 2 \right) \left( \frac 1 2 \right) \left( \frac 1 2
 P(T^{n-1}H) = \frac{1}{2^{n}}.
 \]</div>
 <p>Let <span class="math notranslate nohighlight">\(N\)</span> be a random variable that is equal to the number of flips until the first H occurs. Then if <span class="math notranslate nohighlight">\(n \in \{1,2,3,\ldots \}\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b57a9219-4f61-45e0-9943-a2b46f033e20">
-<span class="eqno">(8.2)<a class="headerlink" href="#equation-b57a9219-4f61-45e0-9943-a2b46f033e20" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c25f92dd-f8d2-4510-9276-03730b39298d">
+<span class="eqno">(8.2)<a class="headerlink" href="#equation-c25f92dd-f8d2-4510-9276-03730b39298d" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left[N(s) =n \right] &amp;= P\left[ T^{n-1}H \right] \\
 &amp;= \left( \frac {1}{2} \right)^n.
 \end{align}\]</div>
@@ -878,15 +931,76 @@ p_N(n) =
 0, &amp; \mbox{o.w.}
 \end{cases}
 \end{split}\]</div>
+<p>To implement this PMF in Python, we need a way to check whether the values of a NumPy array are positive integers. The floor function <span class="math notranslate nohighlight">\(\lfloor x \rfloor\)</span> returns the largest integer that is less than or equal to <span class="math notranslate nohighlight">\(x\)</span>. Then <span class="math notranslate nohighlight">\(x - \lfloor x \rfloor \)</span> is the fractional part of <span class="math notranslate nohighlight">\(x\)</span>, which is zero if and only if <span class="math notranslate nohighlight">\(x\)</span> is an integer.  We can use the <code class="docutils literal notranslate"><span class="pre">np.floor()</span></code> function to return the floor of the elements in an array, as shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-1.  -0.5  0.   0.5  1.   1.5  2. ] [ True False  True False  True False  True]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can check that the values of the array are positive like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False, False,  True,  True,  True,  True])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we can use the Numpy function <code class="docutils literal notranslate"><span class="pre">np.logical_and()</span></code> to find the elementwise intersection of these arrays:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-1.  -0.5  0.   0.5  1.   1.5  2. ] [False False False False  True False  True]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using this approach, a Python implementation of this PMF is shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p_N</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">piecewise</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)],</span> <span class="p">[</span><span class="k">lambda</span> <span class="n">u</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="n">u</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_N</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.  , 0.  , 0.  , 0.  , 0.5 , 0.  , 0.25])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that this function uses one new feature that I didn’t mention above. That is, I did not put <code class="docutils literal notranslate"><span class="pre">(1/2)**n</span></code> in the <code class="docutils literal notranslate"><span class="pre">funclist</span></code>. The reason is that we only want to raise <span class="math notranslate nohighlight">\(1/2\)</span> to those values of <span class="math notranslate nohighlight">\(n\)</span> that satisfy the conditions. Those elements that satisfy the first condition will be used as an input to the first function, and we use a <em>lambda function</em> to take that input into a variable <span class="math notranslate nohighlight">\(u\)</span> and then apply the function (after the colon).</p>
 <p>Because the PMF has infinite range, we can only generate the values for it and plot it over a finite subset of its range. Because the values of the PMF get small quickly, we will plot up to <span class="math notranslate nohighlight">\(n=8\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">n</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
 
-<span class="n">PMF_n</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="n">n</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">PMF_n</span><span class="p">,</span> <span class="n">use_line_collection</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p_N</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">use_line_collection</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$n$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability mass function $p_N(n)$&#39;</span><span class="p">)</span>
@@ -897,7 +1011,7 @@ p_N(n) =
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Probability mass function $p_N(n)$&#39;)
 </pre></div>
 </div>
-<img alt="../_images/discrete-rvs_22_1.png" src="../_images/discrete-rvs_22_1.png" />
+<img alt="../_images/discrete-rvs_43_1.png" src="../_images/discrete-rvs_43_1.png" />
 </div>
 </div>
 <p>The probability mass function is nice because</p>
