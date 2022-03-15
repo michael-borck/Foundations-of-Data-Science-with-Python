@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8.4. Common Discrete Random Variables and Their Applications &#8212; Foundations of Data Science with Python</title>
+    <title>8.6. Continuous Random Variables and Probability Density Functions &#8212; Foundations of Data Science with Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="9. Moments, Parameter Estimation, and Binary Hypothesis Tests on Sample Means (Outline)" href="../09-moments/outline.html" />
-    <link rel="prev" title="8.3. Cumulative Distribution Functions" href="cdfs.html" />
+    <link rel="prev" title="8.4. Important Discrete RVs" href="important-discrete-rvs.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -434,9 +434,14 @@ const thebe_selector_output = ".output, .cell_output"
      8.3. Cumulative Distribution Functions
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="important-discrete-rvs.html">
+     8.4. Important Discrete RVs
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     8.4. Common Discrete Random Variables and Their Applications
+     8.6. Continuous Random Variables and Probability Density Functions
     </a>
    </li>
   </ul>
@@ -576,16 +581,6 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   8.4. Common Discrete Random Variables and Their Applications
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generating-simulating-and-characterizing-discrete-random-variables">
-   8.5. Generating, Simulating, and Characterizing Discrete Random Variables
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#continuous-random-variables-and-probability-density-functions">
    8.6. Continuous Random Variables and Probability Density Functions
   </a>
  </li>
@@ -639,7 +634,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Common Discrete Random Variables and Their Applications</h1>
+                <h1>Continuous Random Variables and Probability Density Functions</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -651,16 +646,6 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   8.4. Common Discrete Random Variables and Their Applications
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generating-simulating-and-characterizing-discrete-random-variables">
-   8.5. Generating, Simulating, and Characterizing Discrete Random Variables
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#continuous-random-variables-and-probability-density-functions">
    8.6. Continuous Random Variables and Probability Density Functions
   </a>
  </li>
@@ -713,13 +698,7 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="section" id="common-discrete-random-variables-and-their-applications">
-<h1><span class="section-number">8.4. </span>Common Discrete Random Variables and Their Applications<a class="headerlink" href="#common-discrete-random-variables-and-their-applications" title="Permalink to this headline">¶</a></h1>
-</div>
-<div class="section" id="generating-simulating-and-characterizing-discrete-random-variables">
-<h1><span class="section-number">8.5. </span>Generating, Simulating, and Characterizing Discrete Random Variables<a class="headerlink" href="#generating-simulating-and-characterizing-discrete-random-variables" title="Permalink to this headline">¶</a></h1>
-</div>
-<div class="section" id="continuous-random-variables-and-probability-density-functions">
+  <div class="section" id="continuous-random-variables-and-probability-density-functions">
 <h1><span class="section-number">8.6. </span>Continuous Random Variables and Probability Density Functions<a class="headerlink" href="#continuous-random-variables-and-probability-density-functions" title="Permalink to this headline">¶</a></h1>
 </div>
 <div class="section" id="properties-of-probability-density-functions">
@@ -772,11 +751,11 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="cdfs.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="important-discrete-rvs.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">8.3. </span>Cumulative Distribution Functions</p>
+            <p class="prev-next-title"><span class="section-number">8.4. </span>Important Discrete RVs</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../09-moments/outline.html" title="next page">
