@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8.6. Outline of Remaining Sections &#8212; Foundations of Data Science with Python</title>
+    <title>8.7. Outline of Remaining Sections &#8212; Foundations of Data Science with Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="9. Moments, Parameter Estimation, and Binary Hypothesis Tests on Sample Means (Outline)" href="../09-moments/outline.html" />
-    <link rel="prev" title="8.4. Important Discrete RVs" href="important-discrete-rvs.html" />
+    <link rel="prev" title="8.6. Continuous Random Variables" href="continuous-rvs.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -439,9 +439,14 @@ const thebe_selector_output = ".output, .cell_output"
      8.4. Important Discrete RVs
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="continuous-rvs.html">
+     8.6. Continuous Random Variables
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     8.6. Outline of Remaining Sections
+     8.7. Outline of Remaining Sections
     </a>
    </li>
   </ul>
@@ -581,32 +586,32 @@ const thebe_selector_output = ".output, .cell_output"
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#important-continuous-random-variables-and-their-applications">
-   8.6.1. Important Continuous Random Variables and Their Applications
+   8.7.1. Important Continuous Random Variables and Their Applications
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-central-limit-theorem-and-gaussian-random-variables">
-   8.6.2. The Central Limit Theorem and Gaussian Random Variables
+   8.7.2. The Central Limit Theorem and Gaussian Random Variables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#histograms-of-continuous-random-variables-and-kernel-density-estimation">
-   8.6.3. Histograms of Continuous Random Variables and Kernel Density Estimation
+   8.7.3. Histograms of Continuous Random Variables and Kernel Density Estimation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction-to-conditioning-with-random-variables">
-   8.6.4. Introduction to Conditioning with Random Variables
+   8.7.4. Introduction to Conditioning with Random Variables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#review">
-   8.6.5. Review
+   8.7.5. Review
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
-   8.6.6. Summary
+   8.7.6. Summary
   </a>
  </li>
 </ul>
@@ -631,32 +636,32 @@ const thebe_selector_output = ".output, .cell_output"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#important-continuous-random-variables-and-their-applications">
-   8.6.1. Important Continuous Random Variables and Their Applications
+   8.7.1. Important Continuous Random Variables and Their Applications
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-central-limit-theorem-and-gaussian-random-variables">
-   8.6.2. The Central Limit Theorem and Gaussian Random Variables
+   8.7.2. The Central Limit Theorem and Gaussian Random Variables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#histograms-of-continuous-random-variables-and-kernel-density-estimation">
-   8.6.3. Histograms of Continuous Random Variables and Kernel Density Estimation
+   8.7.3. Histograms of Continuous Random Variables and Kernel Density Estimation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction-to-conditioning-with-random-variables">
-   8.6.4. Introduction to Conditioning with Random Variables
+   8.7.4. Introduction to Conditioning with Random Variables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#review">
-   8.6.5. Review
+   8.7.5. Review
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
-   8.6.6. Summary
+   8.7.6. Summary
   </a>
  </li>
 </ul>
@@ -669,27 +674,27 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="outline-of-remaining-sections">
-<h1><span class="section-number">8.6. </span>Outline of Remaining Sections<a class="headerlink" href="#outline-of-remaining-sections" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">8.7. </span>Outline of Remaining Sections<a class="headerlink" href="#outline-of-remaining-sections" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="important-continuous-random-variables-and-their-applications">
-<h2><span class="section-number">8.6.1. </span>Important Continuous Random Variables and Their Applications<a class="headerlink" href="#important-continuous-random-variables-and-their-applications" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.7.1. </span>Important Continuous Random Variables and Their Applications<a class="headerlink" href="#important-continuous-random-variables-and-their-applications" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="the-central-limit-theorem-and-gaussian-random-variables">
-<h2><span class="section-number">8.6.2. </span>The Central Limit Theorem and Gaussian Random Variables<a class="headerlink" href="#the-central-limit-theorem-and-gaussian-random-variables" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.7.2. </span>The Central Limit Theorem and Gaussian Random Variables<a class="headerlink" href="#the-central-limit-theorem-and-gaussian-random-variables" title="Permalink to this headline">¶</a></h2>
 <!-- ## Generating, Simulating, and Characterizing Continuous Random Variables (including
  -->
 </div>
 <div class="section" id="histograms-of-continuous-random-variables-and-kernel-density-estimation">
-<h2><span class="section-number">8.6.3. </span>Histograms of Continuous Random Variables and Kernel Density Estimation<a class="headerlink" href="#histograms-of-continuous-random-variables-and-kernel-density-estimation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.7.3. </span>Histograms of Continuous Random Variables and Kernel Density Estimation<a class="headerlink" href="#histograms-of-continuous-random-variables-and-kernel-density-estimation" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="introduction-to-conditioning-with-random-variables">
-<h2><span class="section-number">8.6.4. </span>Introduction to Conditioning with Random Variables<a class="headerlink" href="#introduction-to-conditioning-with-random-variables" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.7.4. </span>Introduction to Conditioning with Random Variables<a class="headerlink" href="#introduction-to-conditioning-with-random-variables" title="Permalink to this headline">¶</a></h2>
 <!-- ## Generative Classification JMS NOTE: Maybe some day-->
 </div>
 <div class="section" id="review">
-<h2><span class="section-number">8.6.5. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.7.5. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="summary">
-<h2><span class="section-number">8.6.6. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.7.6. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -718,11 +723,11 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="important-discrete-rvs.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="continuous-rvs.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">8.4. </span>Important Discrete RVs</p>
+            <p class="prev-next-title"><span class="section-number">8.6. </span>Continuous Random Variables</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../09-moments/outline.html" title="next page">
